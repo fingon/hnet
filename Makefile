@@ -1,15 +1,30 @@
+#
+# $Id: Makefile $
+#
+# Author: Markus Stenberg <mstenber@cisco.com>
+#
+# Copyright (c) 2013 cisco Systems, Inc.
+#
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Mon Apr  8 14:28:33 2013 mstenber
+# Last modified: Mon Apr  8 20:08:14 2013 mstenber
+# Edit time:     14 min
+#
 
 all: build
 
-build: netkit.build
+build: netkit.build openwrt.build
+
+clean: netkit.clean openwrt.clean
+
+openwrt.build:
+	make -C openwrt build
+
+openwrt.clean:
+	make -C openwrt clean
 
 netkit.build:
 	make -C netkit/fs filesystem
 	make -C netkit/kernel -j 9 kernel
-
-clean: netkit.clean
 
 netkit.clean:
 	make -C netkit/fs clean
@@ -18,7 +33,7 @@ netkit.clean:
 # Git utility targets
 
 init:
-	git submodule init
+	git submodule init --recursive
 	git submodule update --recursive
 
 sync:
