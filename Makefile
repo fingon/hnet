@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Mon Apr  8 20:08:14 2013 mstenber
-# Edit time:     14 min
+# Last modified: Tue Apr  9 13:25:41 2013 mstenber
+# Edit time:     15 min
 #
 
 all: build
@@ -23,8 +23,7 @@ openwrt.clean:
 	make -C openwrt clean
 
 netkit.build:
-	make -C netkit/fs filesystem
-	make -C netkit/kernel -j 9 kernel
+	make -C netkit build
 
 netkit.clean:
 	make -C netkit/fs clean

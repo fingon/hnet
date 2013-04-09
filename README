@@ -1,5 +1,5 @@
 Created:       Mon Apr  8 13:27:53 2013 mstenber
-Last modified: Mon Apr  8 13:41:27 2013 mstenber
+Last modified: Tue Apr  9 13:46:39 2013 mstenber
 
 This is the master package for the whole hnet effort. It tracks the
 sub-repositories as git submodules, and provides convenience
@@ -8,10 +8,21 @@ facilities for:
 - setting up custom NetKit environment (amd64-arch with Linux 3.8, and
   wheezy Debian)
 
-- building OpenWRT UML image which has the 'useful bits'
+ (make netkit.build)
+
+- building OpenWRT UML image which has the 'useful bits' for hnet (+
+  Netkit integration)
+
+ (make openwrt.build)
 
 - network topology utilities
+ 
+ (pending)
 
+- updating the OpenWRT feed based on the most recent version of the components
 
+ (component/ => openwrt/feed/*/Makefile automatic update)
+
+ (pending)
 
 
