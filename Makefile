@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Tue Apr  9 16:13:17 2013 mstenber
-# Edit time:     24 min
+# Last modified: Tue Apr  9 16:25:51 2013 mstenber
+# Edit time:     29 min
 #
 
 all: build
@@ -61,6 +61,9 @@ sync:
 # Probably highly self-only tool, to make _all_ nested submodules rw
 # instead of the default ro url
 rw: sync rewrite-git-urls-rw
+	git submodule foreach --recursive git checkout master
+	(cd component/odhcp6c && git checkout hnet)
+	(cd component/luasocket && git checkout unstable)
 
 rewrite-git-urls-rw:
 	perl -i.bak -pe \
