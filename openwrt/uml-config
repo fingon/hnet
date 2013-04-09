@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
-# OpenWrt version: Attitude Adjustment (r35864)
-# Mon Apr  8 19:48:24 2013
+# OpenWrt version: Attitude Adjustment (unknown)
+# Tue Apr  9 14:36:35 2013
 #
 CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_ppc40x is not set
@@ -1396,15 +1396,13 @@ CONFIG_PACKAGE_libxtables=y
 # CONFIG_PACKAGE_libsqlite3 is not set
 # CONFIG_PACKAGE_alsa-lib is not set
 # CONFIG_PACKAGE_bluez-libs is not set
-# CONFIG_PACKAGE_clearsilver is not set
-# CONFIG_PACKAGE_fcgi is not set
 # CONFIG_PACKAGE_libblkid is not set
 CONFIG_PACKAGE_libblobmsg-json=y
 CONFIG_PACKAGE_libbsd=y
 # CONFIG_PACKAGE_libbz2 is not set
 # CONFIG_PACKAGE_libcharset is not set
 # CONFIG_PACKAGE_libcurl is not set
-CONFIG_PACKAGE_libdaemon=y
+# CONFIG_PACKAGE_libdaemon is not set
 # CONFIG_PACKAGE_libdb47 is not set
 # CONFIG_PACKAGE_libdbi is not set
 # CONFIG_PACKAGE_libelf is not set
@@ -1421,7 +1419,6 @@ CONFIG_PACKAGE_libdaemon=y
 # CONFIG_PACKAGE_libgcrypt is not set
 # CONFIG_PACKAGE_libgd is not set
 # CONFIG_PACKAGE_libgdbm is not set
-# CONFIG_PACKAGE_libgmp is not set
 # CONFIG_PACKAGE_libgpg-error is not set
 # CONFIG_PACKAGE_libiconv is not set
 # CONFIG_PACKAGE_libiconv-full is not set
@@ -1445,10 +1442,10 @@ CONFIG_PACKAGE_libncurses=y
 # CONFIG_PACKAGE_libncursesw is not set
 # CONFIG_PACKAGE_libnet1 is not set
 # CONFIG_PACKAGE_libnetsnmp is not set
+# CONFIG_PACKAGE_libnfnetlink is not set
 # CONFIG_PACKAGE_libnl is not set
 CONFIG_PACKAGE_libnl-tiny=y
 # CONFIG_PACKAGE_libogg is not set
-# CONFIG_PACKAGE_libopenldap is not set
 # CONFIG_PACKAGE_liboping is not set
 CONFIG_PACKAGE_libpcap=y
 
@@ -1460,7 +1457,6 @@ CONFIG_PACKAGE_libpopt=y
 CONFIG_PACKAGE_libreadline=y
 # CONFIG_PACKAGE_librpc is not set
 # CONFIG_PACKAGE_librrd1 is not set
-# CONFIG_PACKAGE_libsasl2 is not set
 # CONFIG_PACKAGE_libsensors is not set
 # CONFIG_PACKAGE_libspandsp is not set
 # CONFIG_PACKAGE_libsrtp is not set
@@ -1567,7 +1563,6 @@ CONFIG_PACKAGE_isc-dhcp-server-ipv6=y
 #
 # Routing and Redirection
 #
-CONFIG_PACKAGE_babeld=y
 CONFIG_PACKAGE_bird4=y
 CONFIG_PACKAGE_birdc4=y
 CONFIG_PACKAGE_ip=y
@@ -1590,77 +1585,6 @@ CONFIG_PACKAGE_ip=y
 #
 # CONFIG_PACKAGE_openvpn is not set
 # CONFIG_PACKAGE_openvpn-easy-rsa is not set
-# CONFIG_PACKAGE_strongswan is not set
-# CONFIG_PACKAGE_strongswan-charon is not set
-# CONFIG_PACKAGE_strongswan-default is not set
-# CONFIG_PACKAGE_strongswan-full is not set
-# CONFIG_PACKAGE_strongswan-libfast is not set
-# CONFIG_PACKAGE_strongswan-minimal is not set
-# CONFIG_PACKAGE_strongswan-mod-addrblock is not set
-# CONFIG_PACKAGE_strongswan-mod-aes is not set
-# CONFIG_PACKAGE_strongswan-mod-af-alg is not set
-# CONFIG_PACKAGE_strongswan-mod-agent is not set
-# CONFIG_PACKAGE_strongswan-mod-attr is not set
-# CONFIG_PACKAGE_strongswan-mod-attr-sql is not set
-# CONFIG_PACKAGE_strongswan-mod-blowfish is not set
-# CONFIG_PACKAGE_strongswan-mod-ccm is not set
-# CONFIG_PACKAGE_strongswan-mod-cmac is not set
-# CONFIG_PACKAGE_strongswan-mod-constraints is not set
-# CONFIG_PACKAGE_strongswan-mod-coupling is not set
-# CONFIG_PACKAGE_strongswan-mod-ctr is not set
-# CONFIG_PACKAGE_strongswan-mod-curl is not set
-# CONFIG_PACKAGE_strongswan-mod-des is not set
-# CONFIG_PACKAGE_strongswan-mod-dhcp is not set
-# CONFIG_PACKAGE_strongswan-mod-dnskey is not set
-# CONFIG_PACKAGE_strongswan-mod-duplicheck is not set
-# CONFIG_PACKAGE_strongswan-mod-eap-identity is not set
-# CONFIG_PACKAGE_strongswan-mod-eap-md5 is not set
-# CONFIG_PACKAGE_strongswan-mod-eap-mschapv2 is not set
-# CONFIG_PACKAGE_strongswan-mod-farp is not set
-# CONFIG_PACKAGE_strongswan-mod-fips-prf is not set
-# CONFIG_PACKAGE_strongswan-mod-gcm is not set
-# CONFIG_PACKAGE_strongswan-mod-gcrypt is not set
-# CONFIG_PACKAGE_strongswan-mod-gmp is not set
-# CONFIG_PACKAGE_strongswan-mod-ha is not set
-# CONFIG_PACKAGE_strongswan-mod-hmac is not set
-# CONFIG_PACKAGE_strongswan-mod-kernel-klips is not set
-# CONFIG_PACKAGE_strongswan-mod-kernel-netlink is not set
-# CONFIG_PACKAGE_strongswan-mod-kernel-pfkey is not set
-# CONFIG_PACKAGE_strongswan-mod-ldap is not set
-# CONFIG_PACKAGE_strongswan-mod-led is not set
-# CONFIG_PACKAGE_strongswan-mod-load-tester is not set
-# CONFIG_PACKAGE_strongswan-mod-md4 is not set
-# CONFIG_PACKAGE_strongswan-mod-md5 is not set
-# CONFIG_PACKAGE_strongswan-mod-mysql is not set
-# CONFIG_PACKAGE_strongswan-mod-nonce is not set
-# CONFIG_PACKAGE_strongswan-mod-openssl is not set
-# CONFIG_PACKAGE_strongswan-mod-pem is not set
-# CONFIG_PACKAGE_strongswan-mod-pgp is not set
-# CONFIG_PACKAGE_strongswan-mod-pkcs1 is not set
-# CONFIG_PACKAGE_strongswan-mod-pkcs11 is not set
-# CONFIG_PACKAGE_strongswan-mod-pkcs8 is not set
-# CONFIG_PACKAGE_strongswan-mod-pubkey is not set
-# CONFIG_PACKAGE_strongswan-mod-random is not set
-# CONFIG_PACKAGE_strongswan-mod-resolve is not set
-# CONFIG_PACKAGE_strongswan-mod-revocation is not set
-# CONFIG_PACKAGE_strongswan-mod-sha1 is not set
-# CONFIG_PACKAGE_strongswan-mod-sha2 is not set
-# CONFIG_PACKAGE_strongswan-mod-smp is not set
-# CONFIG_PACKAGE_strongswan-mod-socket-default is not set
-# CONFIG_PACKAGE_strongswan-mod-socket-dynamic is not set
-# CONFIG_PACKAGE_strongswan-mod-socket-raw is not set
-# CONFIG_PACKAGE_strongswan-mod-sql is not set
-# CONFIG_PACKAGE_strongswan-mod-sqlite is not set
-# CONFIG_PACKAGE_strongswan-mod-stroke is not set
-# CONFIG_PACKAGE_strongswan-mod-test-vectors is not set
-# CONFIG_PACKAGE_strongswan-mod-uci is not set
-# CONFIG_PACKAGE_strongswan-mod-updown is not set
-# CONFIG_PACKAGE_strongswan-mod-whitelist is not set
-# CONFIG_PACKAGE_strongswan-mod-x509 is not set
-# CONFIG_PACKAGE_strongswan-mod-xauth-eap is not set
-# CONFIG_PACKAGE_strongswan-mod-xauth-generic is not set
-# CONFIG_PACKAGE_strongswan-mod-xcbc is not set
-# CONFIG_PACKAGE_strongswan-utils is not set
 
 #
 # Web Servers/Proxies
@@ -1687,7 +1611,6 @@ CONFIG_PACKAGE_iw=y
 # CONFIG_PACKAGE_multiwan is not set
 # CONFIG_PACKAGE_netdiscover is not set
 # CONFIG_PACKAGE_noping is not set
-# CONFIG_PACKAGE_openldap-server is not set
 # CONFIG_PACKAGE_oping is not set
 # CONFIG_PACKAGE_p910nd is not set
 CONFIG_PACKAGE_ppp=y
@@ -1740,14 +1663,6 @@ CONFIG_PACKAGE_ndisc6=y
 CONFIG_PACKAGE_rdisc6=y
 # CONFIG_PACKAGE_rdnssd is not set
 CONFIG_PACKAGE_traceroute6=y
-
-#
-# wide-dhcpv6
-#
-# CONFIG_PACKAGE_wide-dhcpv6-client is not set
-# CONFIG_PACKAGE_wide-dhcpv6-control is not set
-# CONFIG_PACKAGE_wide-dhcpv6-relay is not set
-# CONFIG_PACKAGE_wide-dhcpv6-server is not set
 CONFIG_PACKAGE_6in4=y
 CONFIG_PACKAGE_6rd=y
 # CONFIG_PACKAGE_6to4 is not set
@@ -1755,13 +1670,9 @@ CONFIG_PACKAGE_6rd=y
 # CONFIG_PACKAGE_bird6 is not set
 CONFIG_PACKAGE_bird6-elsa=y
 # CONFIG_PACKAGE_birdc6 is not set
-CONFIG_PACKAGE_dibbler-client=y
-# CONFIG_PACKAGE_dibbler-relay is not set
-# CONFIG_PACKAGE_dibbler-requestor is not set
-CONFIG_PACKAGE_dibbler-server=y
 CONFIG_PACKAGE_hnet=y
 CONFIG_PACKAGE_hnet-odhcp6c=y
-CONFIG_PACKAGE_radvd=y
+# CONFIG_PACKAGE_radvd is not set
 # CONFIG_PACKAGE_radvdump is not set
 
 #
@@ -2335,7 +2246,6 @@ CONFIG_PACKAGE_jshn=y
 # CONFIG_PACKAGE_mount-utils is not set
 # CONFIG_PACKAGE_namei is not set
 # CONFIG_PACKAGE_ocf-crypto-headers is not set
-# CONFIG_PACKAGE_openldap-utils is not set
 # CONFIG_PACKAGE_openssl-util is not set
 # CONFIG_PACKAGE_owipcalc is not set
 # CONFIG_PACKAGE_px5g is not set
@@ -2390,7 +2300,6 @@ CONFIG_PACKAGE_lua=y
 # CONFIG_PACKAGE_luac is not set
 CONFIG_PACKAGE_lualfs=y
 CONFIG_PACKAGE_luamd5=y
-# CONFIG_PACKAGE_luasocket is not set
 CONFIG_PACKAGE_luavstruct=y
 
 #

@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 19:57:22 2013 mstenber
-# Last modified: Mon Apr  8 20:15:07 2013 mstenber
-# Edit time:     11 min
+# Last modified: Tue Apr  9 14:27:25 2013 mstenber
+# Edit time:     12 min
 #
 
 # This is wrapper around real OpenWRT distro (under dist/)
@@ -25,6 +25,8 @@ DEFAULT_BUILD_TARGET=uml
 build:
 	./build.sh $(DEFAULT_BUILD_TARGET)
 
+# .. desirable, but running make clean again w/o .config leads to pain ..
+#	@rm -f dist/.config
 myclean:
 	@rm -f dist/feeds.conf
 	@rm -f dist/files
