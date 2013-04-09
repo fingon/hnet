@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Tue Apr  9 15:25:06 2013 mstenber
-# Edit time:     22 min
+# Last modified: Tue Apr  9 16:13:17 2013 mstenber
+# Edit time:     24 min
 #
 
 all: build
@@ -43,6 +43,12 @@ netkit.build:
 netkit.clean:
 	make -C netkit/fs clean
 	make -C netkit/kernel clean
+
+ttin.build:
+	make -C ttin build
+
+ttin.clean:
+	make -C ttin clean
 
 # Git utility targets
 init:

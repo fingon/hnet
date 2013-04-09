@@ -22,3 +22,6 @@
 [submodule "component/luasocket"]
 	path = component/luasocket
 	url = git://github.com/fingon/luasocket.git
+[submodule "ttin"]
+	path = ttin
+	url = git://github.com/fingon/hnet-ttin.git
