@@ -1,5 +1,5 @@
 Created:       Mon Apr  8 13:27:53 2013 mstenber
-Last modified: Tue Apr  9 13:46:39 2013 mstenber
+Last modified: Tue Apr  9 16:20:51 2013 mstenber
 
 This is the master package for the whole hnet effort. It tracks the
 sub-repositories as git submodules, and provides convenience
@@ -24,5 +24,12 @@ facilities for:
  (component/ => openwrt/feed/*/Makefile automatic update)
 
  (pending)
+
+- advanced use case: OWRT with hnet for router, instead of UML
+
+  # make openwrt.build
+  # (cd openwrt/dist && make menuconfig && make) 
+  => choose your router model
+  .. and enjoy the binaries in openwrt/dist/bin/
 
 
