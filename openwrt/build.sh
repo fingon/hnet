@@ -8,8 +8,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 20:11:27 2013 mstenber
-# Last modified: Tue Apr  9 16:10:02 2013 mstenber
-# Edit time:     18 min
+# Last modified: Tue Apr  9 16:50:25 2013 mstenber
+# Edit time:     20 min
 #
 
 HNET_PACKAGES="hnet netkit"
@@ -33,7 +33,11 @@ fi
 # packages explicitly
 if [ ! -f dist/feeds.conf ]
 then
-    if [ -f dist/.config ]
+    if [ -L dist/.config ]
+    then 
+        # nop if symlink
+        true
+    elif [ -f dist/.config ]
     then
         echo "dist/.config is non-symlink! Something is horribly wrong (1)."
         exit 1
