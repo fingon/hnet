@@ -6,49 +6,20 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Tue Apr  9 16:25:51 2013 mstenber
-# Edit time:     29 min
+# Last modified: Wed Apr 10 13:01:54 2013 mstenber
+# Edit time:     35 min
 #
 
-all: build
+HNETDIR=$(CURDIR)
+SUBDIRS=component netkit openwrt ttin
 
-## Meta-targets available
+# omit netkit - cleaning it is rather expensive
+CLEANSUBDIRS=component openwrt ttin
 
-# Build netkit + openwrt for UML + test infra labs for it
+include $(HNETDIR)/recmake.mk
 
-build: netkit.build openwrt.build ttin.build
-
-# 'fast' clean
-
-clean: openwrt.clean ttin.clean
-
-# ~distro-only level clean (should clean all binaries etc)
-
-dirclean: clean netkit.clean openwrt.dirclean
-
-# Subdir-specific rules for build/clean/dirclean
-
-openwrt.build:
-	make -C openwrt build
-
-openwrt.clean:
-	make -C openwrt clean
-
-openwrt.dirclean:
-	make -C openwrt dirclean
-
-netkit.build:
-	make -C netkit build
-
-netkit.clean:
-	make -C netkit/fs clean
-	make -C netkit/kernel clean
-
-ttin.build:
-	make -C ttin build
-
-ttin.clean:
-	make -C ttin clean
+clean: $(CLEANS)
+	rm -rf build
 
 # Git utility targets
 init:
