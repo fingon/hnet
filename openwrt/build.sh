@@ -8,8 +8,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 20:11:27 2013 mstenber
-# Last modified: Tue Apr  9 16:50:25 2013 mstenber
-# Edit time:     20 min
+# Last modified: Wed Apr 10 13:13:58 2013 mstenber
+# Edit time:     23 min
 #
 
 HNET_PACKAGES="hnet netkit"
@@ -60,12 +60,15 @@ rm -f config
 ln -s ${1}-config config
 
 # Link our 'config' to dist/.config if necessary
-if [ -f dist/.config ]
+if [ -L dist/.config ]
+then 
+    # nop if symlink already (we hope it points in the right place)
+    true
+elif [ -f dist/.config ]
 then
     echo "dist/.config is non-symlink! Something is horribly wrong (2)."
     exit 1
-elif [ ! -L dist/.config ]
-then 
+else
     ln -s ../config dist/.config
 fi
 
