@@ -6,28 +6,39 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Wed Apr 10 13:01:54 2013 mstenber
-# Edit time:     35 min
+# Last modified: Wed Apr 10 16:44:32 2013 mstenber
+# Edit time:     42 min
 #
 
 HNETDIR=$(CURDIR)
-SUBDIRS=component netkit openwrt ttin
+SUBDIRS=build component netkit openwrt ttin
 
 # omit netkit - cleaning it is rather expensive
-CLEANSUBDIRS=component openwrt ttin
+CLEANSUBDIRS=build component openwrt ttin
 
 include $(HNETDIR)/recmake.mk
 
-clean: $(CLEANS)
+build.clean:
 	rm -rf build
+
+build.build:
+	mkdir -p build/bin
+	mkdir -p build/lib
+	# Copy over libc so that we can use it in netkit..
+	# Not very elegant, but oh well
+	cp -a  /lib/x86_64-linux-gnu/libc[-.]* build/lib
 
 # Git utility targets
 init:
+	git submodule init
 	git submodule update --init --recursive
 
 sync:
 	git submodule sync
 	git submodule foreach --recursive git submodule sync
+
+pull:
+	git submodule foreach --recursive git pull
 
 # Probably highly self-only tool, to make _all_ nested submodules rw
 # instead of the default ro url
@@ -35,6 +46,11 @@ rw: sync rewrite-git-urls-rw
 	git submodule foreach --recursive git checkout master
 	(cd component/odhcp6c && git checkout hnet)
 	(cd component/luasocket && git checkout unstable)
+
+update-owrt: rw
+	python util/rewrite-feed-makefiles.py
+
+uo: update-owrt
 
 rewrite-git-urls-rw:
 	perl -i.bak -pe \
