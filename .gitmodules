@@ -25,3 +25,12 @@
 [submodule "ttin"]
 	path = ttin
 	url = git://github.com/fingon/hnet-ttin.git
+[submodule "component/luavstruct"]
+	path = component/luavstruct
+	url = git://github.com/ToxicFrog/vstruct.git
+[submodule "component/lualfs"]
+	path = component/lualfs
+	url = https://github.com/keplerproject/luafilesystem.git
+[submodule "component/luamd5"]
+	path = component/luamd5
+	url = https://github.com/keplerproject/md5.git
