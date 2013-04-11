@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Thu Apr 11 17:47:32 2013 mstenber
-# Edit time:     48 min
+# Last modified: Thu Apr 11 17:50:21 2013 mstenber
+# Edit time:     50 min
 #
 
 HNETDIR=$(CURDIR)
@@ -46,13 +46,8 @@ push:
 	git submodule foreach --recursive $(PUSHCMD)
 	@sh -c $(PUSHCMD)
 
-# Setup cmd for ubuntu-1204
-setup-ubuntu:
-	sudo usermod -a -G disk `whoami`
-	sudo apt-get --yes install `cat packages-ubuntu-1204 | egrep -v '^#'`
-
-# Setup cmd for Debian 7.0 (aka wheezy)
-setup-debian:
+# Setup cmd for ubuntu-1204 / Debian 7.0 (aka wheezy)
+setup-debianish:
 	sudo usermod -a -G disk `whoami`
 	sudo apt-get --yes install `cat packages-debian-70 | egrep -v '^#'`
 

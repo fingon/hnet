@@ -2,19 +2,19 @@
 # -*- text -*-
 autoconf
 bison 
+ccache
 cmake
 debootstrap
 flex 
 g++ 
+gawk
 gcc 
+gettext
 liblua5.1-dev
 libncurses-dev
-libreadline6-dev
-libvdeplug2-dev
 libpcap-dev
-gawk
+libreadline6-dev
+libtool
+libvdeplug2-dev
 subversion
 zlib1g-dev
-ccache
-gettext
-libtool
