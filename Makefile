@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Thu Apr 11 13:01:48 2013 mstenber
-# Edit time:     45 min
+# Last modified: Thu Apr 11 13:57:55 2013 mstenber
+# Edit time:     51 min
 #
 
 HNETDIR=$(CURDIR)
@@ -45,6 +45,16 @@ PUSHCMD='(git status | grep -q ahead) && git push || true'
 push:
 	git submodule foreach --recursive $(PUSHCMD)
 	@sh -c $(PUSHCMD)
+
+# Setup cmd for ubuntu-1204
+setup-ubuntu:
+	sudo usermod -a -G disk `whoami`
+	sudo apt-get --yes install `cat packages-ubuntu-1204 | egrep -v '^#'`
+
+# Setup cmd for Debian 7.0 (aka wheezy)
+setup-debian:
+	sudo usermod -a -G disk `whoami`
+	sudo apt-get --yes install `cat packages-debian-70 | egrep -v '^#'`
 
 # Probably highly self-only tool, to make _all_ nested submodules rw
 # instead of the default ro url
