@@ -1,0 +1,92 @@
+-*- outline -*-
+
+Created:       Mon Apr  8 13:27:53 2013 mstenber
+Last modified: Thu Apr 11 19:05:18 2013 mstenber
+
+* Instructions to install from scratch
+
+** Requirements
+
+Debian 7.0 (wheezy) (amd64)
+~default installation (desktop + 
+
+Ubuntu 12.04 LTS (amd64)
+~default installation
+
+Other versions may also work; please let me know if you have success
+with similar instructions. Tested only with amd64, probably works
+also with x86.
+
+** Disclaimer
+
+These instructions are a work in progress. Please check the
+problems and solutions section below, if you encounter a problem while
+following them.
+
+** Steps
+
+# sudo apt-get install git
+
+ (if you don't have it already)
+
+# git clone --recursive git://github.com/fingon/hnet.git
+
+# make setup-debianish
+
+.. re-login if you weren't part of 'disk' group before ..
+
+Note: sudo should be also configured for your account for the
+following steps to work; on typical Ubuntu 12.04 installation it
+should work out of the box, in case of Debian, you have to add
+yourself to sudoers group using 'usermod -a -G sudoers <userid>' as
+root.
+
+# make
+
+.. this takes a long while (it should be safe to use -j <N>, -s, or
+whatever with this too if desirable) ..
+
+If it completes, your environment is set up correctly. Congratulations.
+
+To start a sample NetKit lab, type 
+
+# make demo.start
+
+and to stop it,
+
+# make demo.stop
+
+** Extra steps for real development
+
+You probably want to add NETKIT_HOME environment variable, and add
+$NETKIT_HOME/bin to your PATH, if you actually use this for real; see
+demo_{start,stop}.sh.
+
+* Problems and solutions
+
+** Incorrect permissions
+
+*** Symptom
+
+losetup: no permission to look at /dev/loop<N>
+-e 
+\e[1m\e[32m====== Creating partition table... =======\e[0m
+loop: can't get info on device X/hnet/netkit/fs/netkit-fs-amd64-F5.2-wheezy: Inappropriate ioctl for device
+
+*** Solution
+
+make setup-X should have added you to group, but have to re-log-in for
+change to get into effect
+
+** Flaky netkit filesystem creation script
+
+*** Symptom
+
+losetup: /dev/loop0: device is busy
+make[2]: *** [.fs_created] Error 2
+make[2]: Leaving directory `X/hnet/netkit/fs'
+...
+
+*** Solution
+
+run make again (...)

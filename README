@@ -1,9 +1,11 @@
 Created:       Mon Apr  8 13:27:53 2013 mstenber
-Last modified: Tue Apr  9 16:20:51 2013 mstenber
+Last modified: Thu Apr 11 18:57:43 2013 mstenber
 
 This is the master package for the whole hnet effort. It tracks the
 sub-repositories as git submodules, and provides convenience
 facilities for:
+
+- simple 'general setup' framework (see INSTALL file for details)
 
 - setting up custom NetKit environment (amd64-arch with Linux 3.8, and
   wheezy Debian)

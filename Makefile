@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Thu Apr 11 17:50:21 2013 mstenber
-# Edit time:     50 min
+# Last modified: Thu Apr 11 18:59:39 2013 mstenber
+# Edit time:     53 min
 #
 
 HNETDIR=$(CURDIR)
@@ -27,6 +27,13 @@ build.build:
 	# Copy over libc so that we can use it in netkit..
 	# Not very elegant, but oh well
 	cp -a  /lib/x86_64-linux-gnu/libc[-.]* build/lib
+
+# Funny demo stuff
+demo.start:
+	./demo_start.sh
+
+demo.stop:
+	./demo_stop.sh
 
 # Git utility targets
 init:
