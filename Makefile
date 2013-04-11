@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Wed Apr 10 16:44:32 2013 mstenber
-# Edit time:     42 min
+# Last modified: Thu Apr 11 13:01:48 2013 mstenber
+# Edit time:     45 min
 #
 
 HNETDIR=$(CURDIR)
@@ -39,6 +39,12 @@ sync:
 
 pull:
 	git submodule foreach --recursive git pull
+
+PUSHCMD='(git status | grep -q ahead) && git push || true'
+
+push:
+	git submodule foreach --recursive $(PUSHCMD)
+	@sh -c $(PUSHCMD)
 
 # Probably highly self-only tool, to make _all_ nested submodules rw
 # instead of the default ro url
