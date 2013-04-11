@@ -1,0 +1,20 @@
+# Package list
+# -*- text -*-
+autoconf
+bison 
+cmake
+debootstrap
+flex 
+g++ 
+gcc 
+liblua5.1-dev
+libncurses-dev
+libreadline6-dev
+libvdeplug2-dev
+libpcap-dev
+gawk
+subversion
+zlib1g-dev
+ccache
+gettext
+libtool
