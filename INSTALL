@@ -1,7 +1,7 @@
 -*- outline -*-
 
 Created:       Mon Apr  8 13:27:53 2013 mstenber
-Last modified: Thu Apr 11 19:05:18 2013 mstenber
+Last modified: Tue Apr 23 10:22:49 2013 mstenber
 
 * Instructions to install from scratch
 
@@ -90,3 +90,16 @@ make[2]: Leaving directory `X/hnet/netkit/fs'
 *** Solution
 
 run make again (...)
+
+*** Symptom
+
+Failed to fetch http://ftp.fi.debian.org/debian/pool/main/<something>_amd64.deb  Could not resolve 'ftp.fi.debian.org'
+make[2]: *** [.full_system_installed] Error 1
+make[2]: Leaving directory `/home/ubuntu/hnet/netkit/fs'
+make[1]: *** [fs.build] Error 2
+make[1]: Leaving directory `/home/ubuntu/hnet/netkit'
+make: *** [netkit.build] Error 2
+
+*** Solution
+
+You encountered transient DNS failure. run make again.
