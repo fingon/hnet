@@ -6,7 +6,7 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Thu Apr 11 18:59:39 2013 mstenber
+# Last modified: Tue Apr 23 10:41:11 2013 mstenber
 # Edit time:     53 min
 #
 
@@ -56,6 +56,7 @@ push:
 # Setup cmd for ubuntu-1204 / Debian 7.0 (aka wheezy)
 setup-debianish:
 	sudo usermod -a -G disk `whoami`
+	sudo apt-get update
 	sudo apt-get --yes install `cat packages-debian-70 | egrep -v '^#'`
 
 # Probably highly self-only tool, to make _all_ nested submodules rw
