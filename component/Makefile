@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Wed Apr 10 14:28:01 2013 mstenber
-# Edit time:     24 min
+# Last modified: Wed May 22 14:45:53 2013 mstenber
+# Edit time:     26 min
 #
 #
 
@@ -42,8 +42,11 @@ luavstruct.build:
 	rm -rf $(LUADIR)/vstruct
 	cp -a luavstruct/vstruct $(LUADIR)/vstruct
 
+luavstruct.clean:
+	rm -rf $(LUADIR)/vstruct
+
 bird.build:
-	if [ ! -f bird/Makefile ] ; then ( cd bird && autoconf && ./configure --with-lua-includes=/usr/include/lua5.1 --with-lua-suffix=5.1 --enable-ipv6 ) ; fi
+	if [ ! -f bird/Makefile ] ; then ( cd bird && autoconf && ./configure --with-lua-includes=/usr/include/lua5.1 --with-lua-suffix=5.1 --enable-ipv6 --enable-debug ) ; fi
 	$(MAKE) -C bird
 	(cd bird && mv bird birdc $(BINDIR))
 
