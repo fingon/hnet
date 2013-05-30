@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Tue Apr 23 10:41:11 2013 mstenber
-# Edit time:     53 min
+# Last modified: Thu May 30 10:41:18 2013 mstenber
+# Edit time:     54 min
 #
 
 HNETDIR=$(CURDIR)
@@ -66,7 +66,7 @@ rw: sync rewrite-git-urls-rw
 	(cd component/odhcp6c && git checkout hnet)
 	(cd component/luasocket && git checkout unstable)
 
-update-owrt: rw
+update-owrt:
 	python util/rewrite-feed-makefiles.py
 
 uo: update-owrt
