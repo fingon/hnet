@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Thu May 30 10:41:18 2013 mstenber
-# Edit time:     54 min
+# Last modified: Thu May 30 11:25:04 2013 mstenber
+# Edit time:     55 min
 #
 
 HNETDIR=$(CURDIR)
@@ -65,6 +65,8 @@ rw: sync rewrite-git-urls-rw
 	git submodule foreach --recursive git checkout master
 	(cd component/odhcp6c && git checkout hnet)
 	(cd component/luasocket && git checkout unstable)
+	(cd netkit/kernel && git checkout ms-linux38)
+	(cd component/core && git checkout ms-dns)
 
 update-owrt:
 	python util/rewrite-feed-makefiles.py
