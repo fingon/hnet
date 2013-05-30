@@ -9,8 +9,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 16:33:42 2013 mstenber
-# Last modified: Wed Apr 10 16:47:49 2013 mstenber
-# Edit time:     12 min
+# Last modified: Thu May 30 10:43:23 2013 mstenber
+# Edit time:     14 min
 #
 """
 
@@ -52,7 +52,7 @@ for owname, cname in owrt2component.items():
         #print cmd
         os.system(cmd)
         ts = datetime.datetime.now().strftime('%Y-%m-%d')
-        cmd = "perl -i.bak -pe 's/^PKG_VERSION.*$/PKG_VERSION:=%(ts)s-%(component_version)s/' '%(owmakefile)s'" % locals()
+        cmd = "perl -i.bak -pe 's/^PKG_VERSION.*$/PKG_VERSION:=%(ts)s-\$(PKG_SOURCE_VERSION)/' '%(owmakefile)s'" % locals()
         #print cmd
         os.system(cmd)
 
