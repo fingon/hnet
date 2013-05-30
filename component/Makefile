@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Wed May 22 14:45:53 2013 mstenber
-# Edit time:     26 min
+# Last modified: Thu May 30 10:39:20 2013 mstenber
+# Edit time:     33 min
 #
 #
 
@@ -46,9 +46,17 @@ luavstruct.clean:
 	rm -rf $(LUADIR)/vstruct
 
 bird.build:
-	if [ ! -f bird/Makefile ] ; then ( cd bird && autoconf && ./configure --with-lua-includes=/usr/include/lua5.1 --with-lua-suffix=5.1 --enable-ipv6 --enable-debug ) ; fi
-	$(MAKE) -C bird
-	(cd bird && mv bird birdc $(BINDIR))
+	if [ ! -f bird/configure ] ; then ( cd bird && autoconf ) ; fi
+	if [ ! -f bird/build/ipv4/Makefile ] ; then ( mkdir -p bird/build/ipv4 && cd bird/build/ipv4 && ../../configure --enable-debug ) ; fi
+	$(MAKE) -C bird/build/ipv4
+	if [ ! -f bird/build/ipv6/Makefile ] ; then ( mkdir -p bird/build/ipv6 && cd bird/build/ipv6 && ../../configure --with-lua-includes=/usr/include/lua5.1 --with-lua-suffix=5.1 --enable-ipv6 --enable-debug ) ; fi
+	$(MAKE) -C bird/build/ipv6
+	#(cd bird/build/ipv4 && mv bird $(BINDIR)/bird4)
+	#(cd bird/build/ipv4 && mv birdc $(BINDIR)/birdc4)
+	(cd bird/build/ipv6 && mv bird birdc $(BINDIR))
+
+bird.clean:
+	rm -rf bird/build
 
 dnsmasq.build:
 	$(MAKE) -C dnsmasq
