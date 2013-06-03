@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Thu May 30 10:39:20 2013 mstenber
-# Edit time:     33 min
+# Last modified: Mon Jun  3 11:38:18 2013 mstenber
+# Edit time:     40 min
 #
 #
 
@@ -22,6 +22,8 @@ BINDIR=$(BUILDDIR)/bin
 
 SUBDIRS=bird dnsmasq odhcp6c \
 	luasocket lualfs luamd5 luavstruct
+
+FORKED_SUBDIRS=bird dnsmasq odhcp6c luasocket
 
 include $(HNETDIR)/recmake.mk
 
@@ -65,3 +67,16 @@ dnsmasq.build:
 odhcp6c.build:
 	(cd odhcp6c && cmake . && $(MAKE))
 	mv odhcp6c/odhcp6c $(BINDIR)
+
+add-upstream:
+	(cd bird && git remote add up git://git.nic.cz/bird.git)
+	(cd dnsmasq && git remote add up git://thekelleys.org.uk/dnsmasq.git)
+	(cd luasocket && git remote add up git://github.com/diegonehab/luasocket.git)
+	(cd odhcp6c && git remote add up git://github.com/sbyx/odhcp6c.git)
+
+
+%.fetch:
+	(cd $* && git fetch up)
+
+fetch: $(FORKED_SUBDIRS:%=%.fetch)
+
