@@ -8,8 +8,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 20:11:27 2013 mstenber
-# Last modified: Wed Apr 10 13:13:58 2013 mstenber
-# Edit time:     23 min
+# Last modified: Mon Jun 10 10:04:53 2013 mstenber
+# Edit time:     24 min
 #
 
 HNET_PACKAGES="hnet netkit"
@@ -23,11 +23,11 @@ install_packages () {
     done
 }
 
-# Link files/ to dist/
-if [ ! -L dist/files ]
-then 
-    ln -s ../files dist/ 
-fi
+# Link ${1}-files/ to dist/
+rm -f dist/files
+rm -f files
+ln -s ${1}-files files
+ln -s ../files dist
 
 # Update feeds.conf, update list of available feeds, and install hnet+netkit
 # packages explicitly

@@ -1,0 +1,48 @@
+#!/bin/sh 
+#-*-sh-*-
+#
+# $Id: rc.local $
+#
+# Author: Markus Stenberg <markus stenberg@iki.fi>
+#
+# Copyright (c) 2012 cisco Systems, Inc.
+#
+# Created:       Wed Oct 31 11:32:33 2012 mstenber
+# Last modified: Mon Jun 10 10:32:33 2013 mstenber
+# Edit time:     42 min
+#
+
+SETUPONCE=/root/localsetup.sh
+
+if [ -f $SETUPONCE ]
+then
+    . $SETUPONCE
+    rm -f $SETUPONCE
+    if [ ! -f $SETUPONCE ]
+    then
+        sync # paranoia?
+        reboot
+    fi
+fi
+
+# Fire up the interfaces
+ifconfig eth0.2 up 
+ifconfig eth0.3 up 
+ifconfig eth0.4 up 
+ifconfig eth1 up 
+
+
+# Start bird+pm.lua
+/etc/init.d/hnet start
+
+# Disable the assignment on eth0 (it's core bridged interface)
+
+# (use -w option to make sure pm has time to go up before skvtool is
+# done, as we don't want skvtool to be skv protocol server)
+#skvtool -w disable-pa.eth0=1
+
+# (done in hnet init, atomically, using etc/hnet-pm.args - we set
+# disable.eth0=1 there..)
+
+# .. and v4 on eth0.1 (for debugging purposes)
+#skvtool disable-pa-v4-eth0.1=1
