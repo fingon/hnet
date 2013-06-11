@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Tue Jun 11 14:01:43 2013 mstenber
-# Edit time:     56 min
+# Last modified: Tue Jun 11 14:17:19 2013 mstenber
+# Edit time:     57 min
 #
 
 HNETDIR=$(CURDIR)
@@ -67,8 +67,7 @@ rw: sync rewrite-git-urls-rw
 	(cd component/luasocket && git checkout unstable)
 	(cd component/core && git checkout ms-dns)
 	(cd openwrt/feed && git checkout ms-dns)
-
-#	(cd netkit/kernel && git checkout ms-stable)
+	(cd netkit/kernel && git checkout ms-stable)
 
 update-owrt:
 	python util/rewrite-feed-makefiles.py
