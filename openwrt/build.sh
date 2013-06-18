@@ -8,8 +8,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 20:11:27 2013 mstenber
-# Last modified: Mon Jun 10 10:04:53 2013 mstenber
-# Edit time:     24 min
+# Last modified: Tue Jun 18 09:46:50 2013 mstenber
+# Edit time:     26 min
 #
 
 HNET_PACKAGES="hnet netkit"
@@ -42,7 +42,7 @@ then
         echo "dist/.config is non-symlink! Something is horribly wrong (1)."
         exit 1
     fi
-    cp feeds.conf dist/
+    cp dist/feeds.conf.default dist/feeds.conf
     echo "src-link hnet "`pwd`/feed >> dist/feeds.conf
     (cd dist && scripts/feeds update)
     install_packages $HNET_PACKAGES
