@@ -6,7 +6,7 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Wed Jun 12 17:16:00 2013 mstenber
+# Last modified: Mon Jun 24 09:16:06 2013 mstenber
 # Edit time:     58 min
 #
 
@@ -64,7 +64,6 @@ setup-debianish:
 rw: sync rewrite-git-urls-rw
 	git submodule foreach --recursive git checkout master
 	(cd component/odhcp6c && git checkout hnet)
-	(cd component/luasocket && git checkout unstable)
 	(cd netkit/kernel && git checkout ms-stable)
 
 update-owrt:
