@@ -34,3 +34,6 @@
 [submodule "component/luavstruct"]
 	path = component/luavstruct
 	url = git://github.com/ToxicFrog/vstruct.git
+[submodule "component/luajit"]
+	path = component/luajit
+	url = http://luajit.org/git/luajit-2.0.git

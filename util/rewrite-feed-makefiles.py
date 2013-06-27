@@ -9,7 +9,7 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 16:33:42 2013 mstenber
-# Last modified: Thu May 30 10:43:23 2013 mstenber
+# Last modified: Thu Jun 27 09:05:20 2013 mstenber
 # Edit time:     14 min
 #
 """
@@ -36,6 +36,7 @@ owrt2component = {'bird6-elsa': 'bird',
                   'hnet-luasocket': 'luasocket',
                   'hnet-odhcp6c': 'odhcp6c',
                   'lualfs': 'lualfs',
+                  'luajit': 'luajit',
                   'luamd5': 'luamd5',
                   'luavstruct': 'luavstruct'
                   }
