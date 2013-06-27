@@ -8,12 +8,12 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 20:11:27 2013 mstenber
-# Last modified: Tue Jun 25 10:53:42 2013 mstenber
+# Last modified: Thu Jun 27 09:57:32 2013 mstenber
 # Edit time:     27 min
 #
 
 HNET_PACKAGES="hnet netkit"
-EXTRA_PACKAGES="luci rsync strace tcpdump procps valgrind"
+EXTRA_PACKAGES="luci rsync strace tcpdump procps valgrind luajit"
 
 install_packages () {
     for PACKAGE in $*
