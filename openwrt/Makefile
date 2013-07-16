@@ -6,7 +6,7 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 19:57:22 2013 mstenber
-# Last modified: Tue Apr  9 14:27:25 2013 mstenber
+# Last modified: Tue Jul 16 11:38:27 2013 mstenber
 # Edit time:     12 min
 #
 
@@ -30,6 +30,7 @@ build:
 myclean:
 	@rm -f dist/feeds.conf
 	@rm -f dist/files
+	@rm -f .installed
 
 # Two variants which also affect underlying OWRT..
 
