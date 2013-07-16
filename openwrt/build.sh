@@ -8,8 +8,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 20:11:27 2013 mstenber
-# Last modified: Tue Jul 16 11:37:18 2013 mstenber
-# Edit time:     36 min
+# Last modified: Tue Jul 16 11:43:13 2013 mstenber
+# Edit time:     40 min
 #
 
 HNET_PACKAGES="hnet netkit"
@@ -62,6 +62,8 @@ then
 
     # Get rid of existing packages; this way, we'll have consistent builds
     # ( and easier configuration maintenance ) 
+    (cd dist && scripts/feeds uninstall -a)
+
     install_packages $PACKAGES
 
     # Store the current installed package list
