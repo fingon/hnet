@@ -1,7 +1,7 @@
 -*- outline -*-
 
 Created:       Mon Apr  8 13:27:53 2013 mstenber
-Last modified: Tue Apr 23 10:22:49 2013 mstenber
+Last modified: Mon Sep 23 11:41:50 2013 mstenber
 
 * Instructions to install from scratch
 
@@ -77,6 +77,20 @@ loop: can't get info on device X/hnet/netkit/fs/netkit-fs-amd64-F5.2-wheezy: Ina
 
 make setup-X should have added you to group, but have to re-log-in for
 change to get into effect
+
+** OpenWRT compilation issues
+
+*** eglibc + make bug
+
+If the build fails under openwrt/dist/ when compiling eglibc, the problem
+is in GNU make ( https://savannah.gnu.org/bugs/index.php?39934 ).
+
+To address that, do
+
+# cd openwrt/dist && make
+
+Note that this may take a LONG TIME to complete. After it has completed,
+redo the hnet make after that.
 
 ** Flaky netkit filesystem creation script
 

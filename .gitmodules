@@ -3,7 +3,7 @@
 	url = git://github.com/fingon/hnet-openwrt-feed.git
 [submodule "openwrt/dist"]
 	path = openwrt/dist
-	url = git://nbd.name/attitude_adjustment.git
+	url = git://git.openwrt.org/openwrt.git
 [submodule "netkit"]
 	path = netkit
 	url = git://github.com/fingon/netkit.git
