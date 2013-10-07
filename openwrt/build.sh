@@ -30,7 +30,7 @@ install_packages () {
 }
 
 # Handle ${1}-files/ to dist/
-rm -f dist/files
+rm -rf dist/files
 # Special case; no files for uml!
 if [ ! "x$1" = "xuml" ]
 then
