@@ -8,8 +8,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 20:11:27 2013 mstenber
-# Last modified: Tue Jul 16 17:09:38 2013 mstenber
-# Edit time:     42 min
+# Last modified: Fri Sep 27 17:45:41 2013 mstenber
+# Edit time:     44 min
 #
 
 HNET_PACKAGES="hnet netkit"
@@ -29,11 +29,15 @@ install_packages () {
     done
 }
 
-# Link ${1}-files/ to dist/
-rm -f dist/files
-rm -f files
-ln -s ${1}-files files
-ln -s ../files dist
+# Handle ${1}-files/ to dist/
+rm -rf dist/files
+# Special case; no files for uml!
+if [ ! "x$1" = "xuml" ]
+then
+    mkdir -p dist/files
+    rsync -a base-files/ dist/files/
+    rsync -a ${1}-files/ dist/files/
+fi
 
 # Update feeds.conf, update list of available feeds, and install hnet+netkit
 # packages explicitly
