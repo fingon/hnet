@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Mon Jun  3 13:09:39 2013 mstenber
-# Edit time:     45 min
+# Last modified: Wed Oct  9 12:27:48 2013 mstenber
+# Edit time:     49 min
 #
 #
 
@@ -20,12 +20,13 @@ BUILDDIR=$(HNETDIR)/build
 LUADIR=$(BUILDDIR)/share/lua/5.1
 BINDIR=$(BUILDDIR)/bin
 
-BIRD_DEBUG=
+BIRD_CONF=
+BIRD_MAKE=
 
 # this disables detach -> some of the existing infra breaks (notably
 # in ttin/). *sigh* (it is needed if you need to debug C bird code,
 # though.)
-#BIRD_DEBUG=--enable-debug
+#BIRD_CONF=--enable-debug
 
 
 SUBDIRS=bird dnsmasq odhcp6c \
@@ -57,15 +58,16 @@ luavstruct.clean:
 
 bird.build:
 	if [ ! -f bird/configure ] ; then ( cd bird && autoconf ) ; fi
-	if [ ! -f bird/build/ipv4/Makefile ] ; then ( mkdir -p bird/build/ipv4 && cd bird/build/ipv4 && ../../configure $(BIRD_DEBUG) ) ; fi
-	$(MAKE) -C bird/build/ipv4
-	if [ ! -f bird/build/ipv6/Makefile ] ; then ( mkdir -p bird/build/ipv6 && cd bird/build/ipv6 && ../../configure --with-lua-includes=/usr/include/lua5.1 --with-lua-suffix=5.1 --enable-ipv6 $(BIRD_DEBUG) ) ; fi
-	$(MAKE) -C bird/build/ipv6
+	if [ ! -f bird/build/ipv4/Makefile ] ; then ( mkdir -p bird/build/ipv4 && cd bird/build/ipv4 && ../../configure $(BIRD_CONF) ) ; fi
+	$(MAKE) -C bird/build/ipv4 $(BIRD_MAKE)
+	if [ ! -f bird/build/ipv6/Makefile ] ; then ( mkdir -p bird/build/ipv6 && cd bird/build/ipv6 && ../../configure --with-lua-includes=/usr/include/lua5.1 --with-lua-suffix=5.1 --enable-ipv6 $(BIRD_CONF) ) ; fi
+	$(MAKE) -C bird/build/ipv6 $(BIRD_MAKE)
 	(cd bird/build/ipv4 && mv bird $(BINDIR)/bird4)
 	(cd bird/build/ipv4 && mv birdc $(BINDIR)/birdc4)
 	(cd bird/build/ipv6 && mv bird birdc $(BINDIR))
 
 bird.clean:
+	rm -f bird/configure
 	rm -rf bird/build
 
 dnsmasq.build:
