@@ -29,7 +29,7 @@ build:
 #	@rm -f dist/.config
 myclean:
 	@rm -f dist/feeds.conf
-	@rm -f dist/files
+	@rm -rf dist/files
 	@rm -f .installed
 
 # Two variants which also affect underlying OWRT..
