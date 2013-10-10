@@ -15,7 +15,7 @@ config switch
 config switch_vlan
 	option device 'rtl8366s'
 	option vlan '1'
-	option ports '0 5t'
+	option ports '3 5t'
 
 config switch_port
 	option device 'rtl8366s'
@@ -35,17 +35,17 @@ config switch_port
 config switch_vlan
 	option device 'rtl8366s'
 	option vlan '2'
-	option ports '1 5t'
-
-config switch_vlan
-	option device 'rtl8366s'
-	option vlan '3'
 	option ports '2 5t'
 
 config switch_vlan
 	option device 'rtl8366s'
+	option vlan '3'
+	option ports '1 5t'
+
+config switch_vlan
+	option device 'rtl8366s'
 	option vlan '4'
-	option ports '3 5t'
+	option ports '0 5t'
 
 config interface 'lan1'
 	option proto 'static'
