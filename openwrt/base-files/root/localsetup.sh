@@ -5,6 +5,13 @@ then
     mv ${NETWORK}.new ${NETWORK}
 fi
 
+# Disable dnsmasq - it's not provisioned correctly and effectively
+# lies in our setup
+/etc/init.d/dnsmasq disable
+
+# XXX - shouldn't this be enabled by default?
+#/etc/init.d/hnet enable
+
 HOSTNAME=inner
 echo " * Setting hostname to $HOSTNAME"
 uci set "system.@system[0].hostname=$HOSTNAME"

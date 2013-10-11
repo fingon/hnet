@@ -1,0 +1,25 @@
+config server h01
+	option network	'h01'
+	option rd	'server'
+	option dhcpv6	'server'
+
+config server h02
+	option network	'h02'
+	option rd	'server'
+	option dhcpv6	'server'
+
+config server h03
+	option network	'h03'
+	option rd	'server'
+	option dhcpv6	'server'
+
+config server h04
+	option network	'h04'
+	option rd	'server'
+	option dhcpv6	'server'
+
+config server h1
+	option network	'h1'
+	option rd	'server'
+	option dhcpv6	'server'
+

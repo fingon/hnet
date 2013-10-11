@@ -36,17 +36,22 @@ config switch_vlan
 
 config interface 'h01'
 	option proto 'hnet'
+        option ifname 'eth0.1'
 
 config interface 'h02'
 	option proto 'hnet'
+        option ifname 'eth0.2'
 
 config interface 'h03'
 	option proto 'hnet'
+        option ifname 'eth0.3'
 
 config interface 'h04'
 	option proto 'hnet'
+        option ifname 'eth0.4'
 
 config interface 'h1'
 	option proto 'hnet'
+        option ifname 'eth1'
 
 
