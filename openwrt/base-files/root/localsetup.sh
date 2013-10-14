@@ -9,8 +9,8 @@ fi
 # lies in our setup
 /etc/init.d/dnsmasq disable
 
-# XXX - shouldn't this be enabled by default?
-#/etc/init.d/hnet enable
+# Seems to be disabled by default -> enable here
+/etc/init.d/hnet enable
 
 HOSTNAME=inner
 echo " * Setting hostname to $HOSTNAME"
