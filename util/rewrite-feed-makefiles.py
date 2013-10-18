@@ -9,7 +9,7 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 16:33:42 2013 mstenber
-# Last modified: Thu May 30 10:43:23 2013 mstenber
+# Last modified: Fri Oct 18 10:46:58 2013 mstenber
 # Edit time:     14 min
 #
 """
@@ -32,9 +32,9 @@ def shell_to_string(s):
 
 owrt2component = {'bird6-elsa': 'bird',
                   'hnet': 'core',
-                  'hnet-dnsmasq-dhcpv6': 'dnsmasq',
+                  #'hnet-dnsmasq-dhcpv6': 'dnsmasq',
+                  #'hnet-odhcp6c': 'odhcp6c',
                   'hnet-luasocket': 'luasocket',
-                  'hnet-odhcp6c': 'odhcp6c',
                   'lualfs': 'lualfs',
                   'luamd5': 'luamd5',
                   'luavstruct': 'luavstruct'
