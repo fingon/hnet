@@ -15,7 +15,7 @@
 	url = git://github.com/fingon/bird-ext-lsa.git
 [submodule "component/odhcp6c"]
 	path = component/odhcp6c
-	url = git://github.com/fingon/hnet-odhcp6c.git
+	url = git://github.com/sbyx/odhcp6c.git
 [submodule "component/dnsmasq"]
 	path = component/dnsmasq
 	url = git://github.com/fingon/hnet-dnsmasq.git

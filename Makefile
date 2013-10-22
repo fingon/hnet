@@ -6,7 +6,7 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Mon Jun 24 09:16:06 2013 mstenber
+# Last modified: Tue Oct 22 10:50:26 2013 mstenber
 # Edit time:     58 min
 #
 
@@ -63,7 +63,6 @@ setup-debianish:
 # instead of the default ro url
 rw: sync rewrite-git-urls-rw
 	git submodule foreach --recursive git checkout master
-	(cd component/odhcp6c && git checkout hnet)
 	(cd netkit/kernel && git checkout ms-stable)
 
 update-owrt:
