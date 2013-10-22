@@ -6,7 +6,7 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Wed Oct  9 12:27:48 2013 mstenber
+# Last modified: Tue Oct 22 11:04:29 2013 mstenber
 # Edit time:     49 min
 #
 #
@@ -75,7 +75,7 @@ dnsmasq.build:
 	mv dnsmasq/src/dnsmasq $(BINDIR)
 
 odhcp6c.build:
-	(cd odhcp6c && cmake . && $(MAKE))
+	(cd odhcp6c && cmake -DEXT_PREFIX_CLASS=200 . && $(MAKE))
 	mv odhcp6c/odhcp6c $(BINDIR)
 
 add-upstream:
