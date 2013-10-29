@@ -1,6 +1,6 @@
 [submodule "openwrt/feed"]
 	path = openwrt/feed
-	url = git://github.com/fingon/hnet-openwrt-feed.git
+	url = git://github.com/Oryon/hnet-openwrt-feed.git
 [submodule "openwrt/dist"]
 	path = openwrt/dist
 	url = git://nbd.name/attitude_adjustment.git
@@ -9,13 +9,13 @@
 	url = git://github.com/fingon/netkit.git
 [submodule "component/core"]
 	path = component/core
-	url = git://github.com/fingon/hnet-core.git
+	url = https://Oryon@github.com/Oryon/hnet-core.git
 [submodule "component/bird"]
 	path = component/bird
-	url = git://github.com/fingon/bird-ext-lsa.git
+	url = https://Oryon@github.com/Oryon/bird-ext-lsa.git
 [submodule "component/odhcp6c"]
 	path = component/odhcp6c
-	url = git://github.com/fingon/hnet-odhcp6c.git
+	url = git://github.com/sbyx/odhcp6c.git
 [submodule "component/dnsmasq"]
 	path = component/dnsmasq
 	url = git://github.com/fingon/hnet-dnsmasq.git
