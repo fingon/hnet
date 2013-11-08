@@ -6,6 +6,7 @@ CONFIG_MODULES=y
 CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_ppc40x is not set
 # CONFIG_TARGET_realview is not set
+# CONFIG_TARGET_sunxi is not set
 # CONFIG_TARGET_atheros is not set
 # CONFIG_TARGET_ar71xx is not set
 # CONFIG_TARGET_at91 is not set
@@ -38,7 +39,6 @@ CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_mcs814x is not set
 # CONFIG_TARGET_au1000 is not set
 # CONFIG_TARGET_ramips is not set
-# CONFIG_TARGET_sparc is not set
 # CONFIG_TARGET_ar7 is not set
 # CONFIG_TARGET_omap4 is not set
 CONFIG_TARGET_uml=y
