@@ -8,8 +8,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 20:11:27 2013 mstenber
-# Last modified: Fri Sep 27 17:45:41 2013 mstenber
-# Edit time:     44 min
+# Last modified: Fri Nov 15 14:06:15 2013 mstenber
+# Edit time:     45 min
 #
 
 HNET_PACKAGES="hnet netkit"
@@ -36,7 +36,10 @@ if [ ! "x$1" = "xuml" ]
 then
     mkdir -p dist/files
     rsync -a base-files/ dist/files/
-    rsync -a ${1}-files/ dist/files/
+    if [ -d "${1}-files" ]
+    then
+      rsync -a ${1}-files/ dist/files/
+    fi
 fi
 
 # Update feeds.conf, update list of available feeds, and install hnet+netkit
