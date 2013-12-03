@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Thu Oct 31 09:44:39 2013 mstenber
-# Edit time:     49 min
+# Last modified: Tue Dec  3 06:50:02 2013 mstenber
+# Edit time:     52 min
 #
 #
 
@@ -30,7 +30,8 @@ BIRD_MAKE=
 
 
 SUBDIRS=bird dnsmasq odhcp6c \
-	luasocket lualfs luamd5 luavstruct
+	luasocket luamd5 luavstruct \
+	ubus libubox hnetd
 
 FORKED_SUBDIRS=bird dnsmasq luasocket
 #odhcp6c

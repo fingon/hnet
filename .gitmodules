@@ -34,3 +34,12 @@
 [submodule "component/luavstruct"]
 	path = component/luavstruct
 	url = git://github.com/ToxicFrog/vstruct.git
+[submodule "component/hnetd"]
+	path = component/hnetd
+	url = https://github.com/sbyx/hnetd.git
+[submodule "component/libubox"]
+	path = component/libubox
+	url = git://nbd.name/luci2/libubox.git
+[submodule "component/ubus"]
+	path = component/ubus
+	url = git://nbd.name/luci2/ubus.git
