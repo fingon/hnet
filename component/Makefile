@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Thu Oct 31 09:44:39 2013 mstenber
-# Edit time:     49 min
+# Last modified: Tue Dec  3 06:49:01 2013 mstenber
+# Edit time:     51 min
 #
 #
 
@@ -30,16 +30,12 @@ BIRD_MAKE=
 
 
 SUBDIRS=bird dnsmasq odhcp6c \
-	luasocket lualfs luamd5 luavstruct
+	luasocket luamd5 luavstruct
 
 FORKED_SUBDIRS=bird dnsmasq luasocket
 #odhcp6c
 
 include $(HNETDIR)/recmake.mk
-
-lualfs.build:
-	$(MAKE) -C lualfs PREFIX=$(BUILDDIR) LUA_INC=/usr/include/lua5.1
-	$(MAKE) -C lualfs PREFIX=$(BUILDDIR) LUA_INC=/usr/include/lua5.1 install
 
 luamd5.build:
 	$(MAKE) -C luamd5 PREFIX=$(BUILDDIR) LUA_INC=/usr/include/lua5.1
