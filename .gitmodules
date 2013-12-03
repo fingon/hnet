@@ -43,3 +43,6 @@
 [submodule "component/ubus"]
 	path = component/ubus
 	url = git://nbd.name/luci2/ubus.git
+[submodule "component/json-c"]
+	path = component/json-c
+	url = https://github.com/json-c/json-c.git
