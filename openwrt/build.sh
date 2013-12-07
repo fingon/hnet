@@ -8,14 +8,17 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 20:11:27 2013 mstenber
-# Last modified: Fri Nov 15 14:06:15 2013 mstenber
-# Edit time:     45 min
+# Last modified: Sat Dec  7 21:28:29 2013 mstenber
+# Edit time:     49 min
 #
 
-HNET_PACKAGES="hnet netkit"
+# V2
+#HNET_PACKAGES="hnet"
+# V3
+HNET_PACKAGES="hnetd hnet-babeld"
 #GPLUS_PACKAGES="python lsqlite3 openvpn-devel-openssl openvpn-easy-rsa google-api-python-client"
 GPLUS_PACKAGES=""
-EXTRA_PACKAGES="luci rsync strace tcpdump procps valgrind"
+EXTRA_PACKAGES="netkit luci rsync strace tcpdump procps valgrind"
 
 INSTALLED_FILE=".installed"
 
