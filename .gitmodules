@@ -46,3 +46,6 @@
 [submodule "component/json-c"]
 	path = component/json-c
 	url = https://github.com/json-c/json-c.git
+[submodule "component/babels"]
+	path = component/babels
+	url = git://git.wifi.pps.univ-paris-diderot.fr/babels
