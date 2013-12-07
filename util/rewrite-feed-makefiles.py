@@ -9,8 +9,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 16:33:42 2013 mstenber
-# Last modified: Tue Nov 12 10:29:18 2013 mstenber
-# Edit time:     15 min
+# Last modified: Sat Dec  7 21:23:07 2013 mstenber
+# Edit time:     17 min
 #
 """
 
@@ -30,15 +30,22 @@ import datetime
 def shell_to_string(s):
     return os.popen(s).read().strip()
 
-owrt2component = {'bird6-elsa': 'bird',
-                  'hnet': 'core',
-                  #'hnet-dnsmasq-dhcpv6': 'dnsmasq',
-                  #'hnet-odhcp6c': 'odhcp6c',
-                  #'hnet-luasocket': 'luasocket',
-                  #'lualfs': 'lualfs',
-                  'luamd5': 'luamd5',
-                  #'luavstruct': 'luavstruct'
-                  }
+owrt2component = {
+    # Version 2 (=Lua + Bird6 + netifd/Linux infra)
+    'bird6-elsa': 'bird',
+    'hnet': 'core',
+    #'hnet-dnsmasq-dhcpv6': 'dnsmasq',
+    #'hnet-odhcp6c': 'odhcp6c',
+    #'hnet-luasocket': 'luasocket',
+    #'lualfs': 'lualfs',
+    'luamd5': 'luamd5',
+    #'luavstruct': 'luavstruct'
+
+    # Version 3 (=hnetd + babels(=hnet-babeld))
+    'hnetd': 'hnetd',
+    'hnet-babeld' : 'babels',
+
+    }
 
 for owname, cname in owrt2component.items():
     component_version = shell_to_string('(cd component/%(cname)s && git rev-parse HEAD)' % locals())
