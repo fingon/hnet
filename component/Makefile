@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Tue Dec  3 08:42:43 2013 mstenber
-# Edit time:     114 min
+# Last modified: Wed Dec 11 02:01:21 2013 mstenber
+# Edit time:     116 min
 #
 #
 
@@ -95,6 +95,9 @@ ubus.build:
 
 hnetd.build:
 	(cd hnetd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
+
+babels.build:
+	$(MAKE) -C babels install PREFIX=$(BUILDDIR)
 
 add-upstream:
 	(cd bird && git remote add up git://git.nic.cz/bird.git)
