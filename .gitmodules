@@ -49,3 +49,6 @@
 [submodule "component/babels"]
 	path = component/babels
 	url = git://git.wifi.pps.univ-paris-diderot.fr/babels
+[submodule "component/ohybridproxy"]
+	path = component/ohybridproxy
+	url = https://github.com/sbyx/ohybridproxy.git
