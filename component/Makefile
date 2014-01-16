@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Wed Dec 11 02:01:21 2013 mstenber
-# Edit time:     116 min
+# Last modified: Thu Jan 16 18:01:59 2014 mstenber
+# Edit time:     117 min
 #
 #
 
@@ -40,7 +40,7 @@ CMAKE_DEFS=\
 
 SUBDIRS=bird dnsmasq odhcp6c \
 	luasocket luamd5 luavstruct \
-	json-c libubox ubus hnetd
+	json-c libubox ubus hnetd ohybridproxy
 
 FORKED_SUBDIRS=bird dnsmasq luasocket
 #odhcp6c
@@ -95,6 +95,9 @@ ubus.build:
 
 hnetd.build:
 	(cd hnetd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
+
+ohybridproxy.build:
+	(cd ohybridproxy && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 babels.build:
 	$(MAKE) -C babels install PREFIX=$(BUILDDIR)
