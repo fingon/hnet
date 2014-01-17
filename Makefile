@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Tue Oct 22 10:50:26 2013 mstenber
-# Edit time:     58 min
+# Last modified: Thu Jan 16 17:59:10 2014 mstenber
+# Edit time:     59 min
 #
 
 HNETDIR=$(CURDIR)
@@ -73,4 +73,7 @@ uo: update-owrt
 rewrite-git-urls-rw:
 	perl -i.bak -pe \
 		's/git:\/\/github\.com\/fingon/git\@github\.com:fingon/g' \
+		`find .git -name 'config' -print`
+	perl -i.bak -pe \
+		's/git:\/\/github\.com\/sbyx/git\@github\.com:sbyx/g' \
 		`find .git -name 'config' -print`
