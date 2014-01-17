@@ -9,7 +9,7 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 16:33:42 2013 mstenber
-# Last modified: Sat Dec  7 21:23:07 2013 mstenber
+# Last modified: Thu Jan 16 18:51:06 2014 mstenber
 # Edit time:     17 min
 #
 """
@@ -44,6 +44,7 @@ owrt2component = {
     # Version 3 (=hnetd + babels(=hnet-babeld))
     'hnetd': 'hnetd',
     'hnet-babeld' : 'babels',
+    'ohybridproxy': 'ohybridproxy',
 
     }
 
