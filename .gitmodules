@@ -52,3 +52,9 @@
 [submodule "component/ohybridproxy"]
 	path = component/ohybridproxy
 	url = https://github.com/sbyx/ohybridproxy.git
+[submodule "component/uci"]
+	path = component/uci
+	url = git://nbd.name/uci.git
+[submodule "component/odhcpd"]
+	path = component/odhcpd
+	url = https://github.com/sbyx/odhcpd.git
