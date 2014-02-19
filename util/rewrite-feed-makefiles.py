@@ -9,7 +9,7 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 16:33:42 2013 mstenber
-# Last modified: Wed Jan 29 16:47:10 2014 mstenber
+# Last modified: Tue Feb 18 20:52:43 2014 mstenber
 # Edit time:     27 min
 #
 """
@@ -32,13 +32,13 @@ def shell_to_string(s):
 
 owrt2component = {
     # Version 2 (=Lua + Bird6 + netifd/Linux infra)
-    'bird6-elsa': 'bird',
-    'hnet': 'core',
+    #'bird6-elsa': 'bird',
+    #'hnet': 'core',
     #'hnet-dnsmasq-dhcpv6': 'dnsmasq',
     #'hnet-odhcp6c': 'odhcp6c',
     #'hnet-luasocket': 'luasocket',
     #'lualfs': 'lualfs',
-    'luamd5': 'luamd5',
+    #'luamd5': 'luamd5',
     #'luavstruct': 'luavstruct'
 
     # Version 3 (=hnetd + babels(=hnet-babeld))
