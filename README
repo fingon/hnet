@@ -1,5 +1,10 @@
 Created:       Mon Apr  8 13:27:53 2013 mstenber
-Last modified: Thu Apr 11 18:57:43 2013 mstenber
+Last modified: Wed Mar 12 12:14:14 2014 mstenber
+
+NOTE: This is somewhat outdated repository (at least as far as
+externally usable bits are concerned as it's main user is just me
+these days). I recommend checking out www.homewrt.org (and
+hnetd/ohybridproxy/whatever else we get into OpenWrt routing feed).
 
 This is the master package for the whole hnet effort. It tracks the
 sub-repositories as git submodules, and provides convenience
