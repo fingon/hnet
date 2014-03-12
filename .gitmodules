@@ -34,3 +34,27 @@
 [submodule "component/luavstruct"]
 	path = component/luavstruct
 	url = git://github.com/ToxicFrog/vstruct.git
+[submodule "component/hnetd"]
+	path = component/hnetd
+	url = https://github.com/sbyx/hnetd.git
+[submodule "component/libubox"]
+	path = component/libubox
+	url = git://nbd.name/luci2/libubox.git
+[submodule "component/ubus"]
+	path = component/ubus
+	url = git://nbd.name/luci2/ubus.git
+[submodule "component/json-c"]
+	path = component/json-c
+	url = https://github.com/json-c/json-c.git
+[submodule "component/babels"]
+	path = component/babels
+	url = git://git.wifi.pps.univ-paris-diderot.fr/babels
+[submodule "component/ohybridproxy"]
+	path = component/ohybridproxy
+	url = https://github.com/sbyx/ohybridproxy.git
+[submodule "component/uci"]
+	path = component/uci
+	url = git://nbd.name/uci.git
+[submodule "component/odhcpd"]
+	path = component/odhcpd
+	url = https://github.com/sbyx/odhcpd.git
