@@ -6,7 +6,7 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Thu Jan 16 17:59:10 2014 mstenber
+# Last modified: Thu Mar 13 13:23:25 2014 mstenber
 # Edit time:     59 min
 #
 
@@ -62,8 +62,7 @@ setup-debianish:
 # Probably highly self-only tool, to make _all_ nested submodules rw
 # instead of the default ro url
 rw: sync rewrite-git-urls-rw
-	git submodule foreach --recursive git checkout master
-	(cd netkit/kernel && git checkout ms-stable)
+	git submodule foreach --recursive 'git checkout master || true'
 
 update-owrt:
 	python util/rewrite-feed-makefiles.py
