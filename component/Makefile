@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Thu Jan 30 13:12:15 2014 mstenber
-# Edit time:     119 min
+# Last modified: Mon Mar 17 14:15:01 2014 mstenber
+# Edit time:     125 min
 #
 #
 
@@ -22,29 +22,17 @@ BINDIR=$(BUILDDIR)/bin
 LIBDIR=$(BUILDDIR)/lib
 INCLUDEDIR=$(BUILDDIR)/include
 
-BIRD_CONF=
-BIRD_MAKE=
-
 CMAKE_DEFS=\
   -DCMAKE_INSTALL_PREFIX:PATH=$(BUILDDIR) \
   -DCMAKE_C_FLAGS=-I$(INCLUDEDIR) \
   -DCMAKE_SHARED_LINKER_FLAGS=-L$(LIBDIR) \
-  -DCMAKE_EXE_LINKER_FLAGS="-L$(LIBDIR)"
+  -DCMAKE_EXE_LINKER_FLAGS="-L$(LIBDIR)" \
+  -DBUILD_LUA=OFF \
+  -DENABLE_SYSTEMD=OFF
 
-
-# this disables detach -> some of the existing infra breaks (notably
-# in ttin/). *sigh* (it is needed if you need to debug C bird code,
-# though.)
-#BIRD_CONF=--enable-debug
-
-
-SUBDIRS=bird dnsmasq odhcp6c \
-	luasocket luamd5 luavstruct \
+SUBDIRS=babels dnsmasq odhcp6c \
 	json-c libubox ubus uci \
 	odhcpd hnetd ohybridproxy
-
-FORKED_SUBDIRS=bird dnsmasq luasocket
-#odhcp6c
 
 include $(HNETDIR)/recmake.mk
 
@@ -87,18 +75,19 @@ json-c.build:
 	if [ ! -f json-c/Makefile ] ; then (cd json-c && ./configure --prefix=$(BUILDDIR)) ; fi
 	rm -rf $(INCLUDEDIR)/json
 	(cd json-c && make install)
+	[ ! -L $(INCLUDEDIR)/json ] && ln -s json-c $(INCLUDEDIR)/json
 
 libubox.build:
-	(cd libubox && PKG_CONFIG_PATH=$(BUILDDIR)/lib/pkgconfig cmake $(CMAKE_DEFS). && $(MAKE) install)
+	(cd libubox && PKG_CONFIG_PATH=$(BUILDDIR)/lib/pkgconfig cmake $(CMAKE_DEFS) . && $(MAKE) install)
 
 ubus.build:
-	(cd ubus && cmake $(CMAKE_DEFS) -DBUILD_LUA=OFF . && $(MAKE) install)
+	(cd ubus && cmake $(CMAKE_DEFS) . && $(MAKE) install)
 
 uci.build:
-	(cd uci && cmake $(CMAKE_DEFS) -DBUILD_LUA=OFF . && $(MAKE) install)
+	(cd uci && cmake $(CMAKE_DEFS) . && $(MAKE) install)
 
 odhcpd.build:
-	(cd odhcpd && cmake $(CMAKE_DEFS) && $(MAKE) install)
+	(cd odhcpd && cmake $(CMAKE_DEFS) . && $(MAKE) install)
 
 hnetd.build:
 	(cd hnetd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
@@ -108,17 +97,4 @@ ohybridproxy.build:
 
 babels.build:
 	$(MAKE) -C babels install PREFIX=$(BUILDDIR)
-
-add-upstream:
-	(cd bird && git remote add up git://git.nic.cz/bird.git)
-	(cd dnsmasq && git remote add up git://thekelleys.org.uk/dnsmasq.git)
-	(cd luasocket && git remote add up git://github.com/diegonehab/luasocket.git)
-
-#	(cd odhcp6c && git remote add up git://github.com/sbyx/odhcp6c.git)
-
-
-%.fetch:
-	(cd $* && git fetch up)
-
-fetch: $(FORKED_SUBDIRS:%=%.fetch)
 
