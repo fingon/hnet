@@ -17,5 +17,4 @@ libreadline6-dev
 libtool
 subversion
 zlib1g-dev
-libvdeplug-dev
 bc
