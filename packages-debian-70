@@ -15,7 +15,6 @@ libncurses-dev
 libpcap-dev
 libreadline6-dev
 libtool
-libvdeplug2-dev
 subversion
 zlib1g-dev
 libvdeplug-dev

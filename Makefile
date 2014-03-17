@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Thu Mar 13 13:23:25 2014 mstenber
-# Edit time:     59 min
+# Last modified: Mon Mar 17 12:45:39 2014 mstenber
+# Edit time:     62 min
 #
 
 HNETDIR=$(CURDIR)
@@ -54,10 +54,14 @@ push:
 	@sh -c $(PUSHCMD)
 
 # Setup cmd for ubuntu-1204 / Debian 7.0 (aka wheezy)
+# libvdeplug-dev has different name..
 setup-debianish:
 	sudo usermod -a -G disk `whoami`
 	sudo apt-get update
 	sudo apt-get --yes install `cat packages-debian-70 | egrep -v '^#'`
+	-sudo apt-get -y install libvdeplug-dev
+	-sudo apt-get -y install libvdeplug2-dev
+
 
 # Probably highly self-only tool, to make _all_ nested submodules rw
 # instead of the default ro url
