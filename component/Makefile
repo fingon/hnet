@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Mon Mar 17 14:15:01 2014 mstenber
-# Edit time:     125 min
+# Last modified: Mon Mar 17 14:49:45 2014 mstenber
+# Edit time:     133 min
 #
 #
 
@@ -32,7 +32,8 @@ CMAKE_DEFS=\
 
 SUBDIRS=babels dnsmasq odhcp6c \
 	json-c libubox ubus uci \
-	odhcpd hnetd ohybridproxy
+	odhcpd hnetd \
+	mDNSResponder ohybridproxy
 
 include $(HNETDIR)/recmake.mk
 
@@ -98,3 +99,8 @@ ohybridproxy.build:
 babels.build:
 	$(MAKE) -C babels install PREFIX=$(BUILDDIR)
 
+
+# default 'install' target tries to run all over /etc; so just use InstallX
+# subtargets
+mDNSResponder.build:
+	INSTBASE=$(BUILDDIR) $(MAKE) -C mDNSResponder/mDNSPosix os=linux all InstalledDaemon InstalledLib InstalledClients
