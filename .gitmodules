@@ -40,3 +40,6 @@
 [submodule "component/odhcpd"]
 	path = component/odhcpd
 	url = git://github.com/sbyx/odhcpd.git
+[submodule "component/mDNSResponder"]
+	path = component/mDNSResponder
+	url = git://github.com/fingon/mDNSResponder.git
