@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Mon Mar 17 14:49:45 2014 mstenber
-# Edit time:     133 min
+# Last modified: Tue Mar 18 13:32:11 2014 mstenber
+# Edit time:     134 min
 #
 #
 
@@ -82,13 +82,13 @@ libubox.build:
 	(cd libubox && PKG_CONFIG_PATH=$(BUILDDIR)/lib/pkgconfig cmake $(CMAKE_DEFS) . && $(MAKE) install)
 
 ubus.build:
-	(cd ubus && cmake $(CMAKE_DEFS) . && $(MAKE) install)
+	(cd ubus && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 uci.build:
-	(cd uci && cmake $(CMAKE_DEFS) . && $(MAKE) install)
+	(cd uci && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 odhcpd.build:
-	(cd odhcpd && cmake $(CMAKE_DEFS) . && $(MAKE) install)
+	(cd odhcpd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 hnetd.build:
 	(cd hnetd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
