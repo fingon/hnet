@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Tue Mar 18 14:38:09 2014 mstenber
-# Edit time:     142 min
+# Last modified: Tue Mar 18 14:39:06 2014 mstenber
+# Edit time:     143 min
 #
 #
 
@@ -51,29 +51,29 @@ json-c.build:
 	if [ ! -f json-c/configure ] ; then (cd json-c && ./autogen.sh ) ; fi
 	if [ ! -f json-c/Makefile ] ; then (cd json-c && ./configure --prefix=$(BUILDDIR)) ; fi
 	rm -rf $(INCLUDEDIR)/json
-	(cd json-c && $(MAKE) -k install)
+	(cd json-c && $(MAKE) install)
 	[ ! -L $(INCLUDEDIR)/json ] && ln -s json-c $(INCLUDEDIR)/json
 
 libubox.build:
-	(cd libubox && PKG_CONFIG_PATH=$(BUILDDIR)/lib/pkgconfig cmake $(CMAKE_DEFS) . && $(MAKE) -k install)
+	(cd libubox && PKG_CONFIG_PATH=$(BUILDDIR)/lib/pkgconfig cmake $(CMAKE_DEFS) . && $(MAKE) install)
 
 ubus.build:
-	(cd ubus && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) -k install)
+	(cd ubus && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 uci.build:
-	(cd uci && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) -k install)
+	(cd uci && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 odhcpd.build:
-	(cd odhcpd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) -k install)
+	(cd odhcpd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 hnetd.build:
-	(cd hnetd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) -k install)
+	(cd hnetd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 ohybridproxy.build:
-	(cd ohybridproxy && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) -k install)
+	(cd ohybridproxy && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 babels.build:
-	$(MAKE) -k -C babels install PREFIX=$(BUILDDIR)
+	$(MAKE) -C babels install PREFIX=$(BUILDDIR)
 
 
 # default 'install' target tries to run all over /etc; so just use InstallX
@@ -82,7 +82,7 @@ babels.build:
 # InstalledDaemon seems problematic - we _want_ mdnsd, but it also
 # plays with /etc..
 mDNSResponder.build:
-	INSTBASE=$(BUILDDIR) $(MAKE) -k -C mDNSResponder/mDNSPosix os=linux all
-	INSTBASE=$(BUILDDIR) $(MAKE) -k -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
+	INSTBASE=$(BUILDDIR) $(MAKE) -C mDNSResponder/mDNSPosix os=linux all
+	INSTBASE=$(BUILDDIR) $(MAKE) -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
 	mkdir -p $(BUILDDIR)/sbin
 	cp mDNSResponder/mDNSPosix/build/prod/mdnsd $(BUILDDIR)/sbin
