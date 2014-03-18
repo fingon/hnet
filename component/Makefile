@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Tue Mar 18 15:18:42 2014 mstenber
-# Edit time:     154 min
+# Last modified: Tue Mar 18 15:38:50 2014 mstenber
+# Edit time:     155 min
 #
 #
 
@@ -41,10 +41,12 @@ include $(HNETDIR)/recmake.mk
 
 dnsmasq.build:
 	$(MAKE) -C dnsmasq
+	mkdir -p $(BINDIR)
 	mv dnsmasq/src/dnsmasq $(BINDIR)
 
 odhcp6c.build:
 	(cd odhcp6c && cmake -DEXT_PREFIX_CLASS=200 . && $(MAKE))
+	mkdir -p $(BINDIR)
 	mv odhcp6c/odhcp6c $(BINDIR)
 
 json-c.build:
