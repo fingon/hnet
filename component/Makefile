@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Tue Mar 18 13:40:10 2014 mstenber
-# Edit time:     136 min
+# Last modified: Tue Mar 18 14:01:13 2014 mstenber
+# Edit time:     140 min
 #
 #
 
@@ -109,4 +109,4 @@ mDNSResponder.build:
 	INSTBASE=$(BUILDDIR) $(MAKE) -C mDNSResponder/mDNSPosix os=linux all
 	INSTBASE=$(BUILDDIR) $(MAKE) -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
 	mkdir -p $(BUILDDIR)/sbin
-	cp $(wildcard mDNSResponder/mDNSPosix/build/*/mdnsd) $(BUILDDIR)/sbin
+	cp mDNSResponder/mDNSPosix/build/prod/mdnsd $(BUILDDIR)/sbin
