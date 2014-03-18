@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Tue Mar 18 15:01:30 2014 mstenber
-# Edit time:     151 min
+# Last modified: Tue Mar 18 15:04:09 2014 mstenber
+# Edit time:     152 min
 #
 #
 
@@ -79,10 +79,12 @@ babels.build:
 # default 'install' target tries to run all over /etc; so just use InstallX
 # subtargets
 
+# -j N doesn't seem to work too well here - so calling make by hand.
+
 # InstalledDaemon seems problematic - we _want_ mdnsd, but it also
 # plays with /etc..
 mDNSResponder.build:
-	INSTBASE=$(BUILDDIR) $(MAKE) -C mDNSResponder/mDNSPosix os=linux all
-	INSTBASE=$(BUILDDIR) $(MAKE) -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
+	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux all
+	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
 	mkdir -p $(BUILDDIR)/sbin
 	cp mDNSResponder/mDNSPosix/build/prod/mdnsd $(BUILDDIR)/sbin
