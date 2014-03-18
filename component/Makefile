@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Tue Mar 18 15:38:50 2014 mstenber
-# Edit time:     155 min
+# Last modified: Tue Mar 18 15:46:40 2014 mstenber
+# Edit time:     158 min
 #
 #
 
@@ -30,7 +30,7 @@ CMAKE_DEFS=\
   -DENABLE_SYSTEMD=OFF
 
 SUBDIRS=babels dnsmasq odhcp6c \
-	json-c libubox ubus uci \
+	json-c libubox uci \
 	odhcpd hnetd \
 	mDNSResponder ohybridproxy
 
@@ -59,10 +59,7 @@ json-c.build:
 libubox.build: json-c.build
 	(cd libubox && PKG_CONFIG_PATH=$(BUILDDIR)/lib/pkgconfig cmake $(CMAKE_DEFS) . && $(MAKE) install)
 
-ubus.build: libubox.build
-	(cd ubus && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
-
-uci.build: ubus.build
+uci.build: libubox.build
 	(cd uci && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 odhcpd.build: uci.build
