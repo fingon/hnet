@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Tue Mar 18 15:04:09 2014 mstenber
-# Edit time:     152 min
+# Last modified: Tue Mar 18 15:18:42 2014 mstenber
+# Edit time:     154 min
 #
 #
 
@@ -88,3 +88,6 @@ mDNSResponder.build:
 	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
 	mkdir -p $(BUILDDIR)/sbin
 	cp mDNSResponder/mDNSPosix/build/prod/mdnsd $(BUILDDIR)/sbin
+
+check: hnetd.build
+	LD_LIBRARY_PATH=$(LIBDIR) make -C hnetd check
