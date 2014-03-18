@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Tue Mar 18 14:47:57 2014 mstenber
-# Edit time:     147 min
+# Last modified: Tue Mar 18 15:01:30 2014 mstenber
+# Edit time:     151 min
 #
 #
 
@@ -54,7 +54,7 @@ json-c.build:
 	(cd json-c && $(MAKE) install)
 	[ ! -L $(INCLUDEDIR)/json ] && ln -s json-c $(INCLUDEDIR)/json
 
-libubox.build:
+libubox.build: json-c.build
 	(cd libubox && PKG_CONFIG_PATH=$(BUILDDIR)/lib/pkgconfig cmake $(CMAKE_DEFS) . && $(MAKE) install)
 
 ubus.build: libubox.build
@@ -79,12 +79,10 @@ babels.build:
 # default 'install' target tries to run all over /etc; so just use InstallX
 # subtargets
 
-# -j N doesn't seem to work too well here - so calling make by hand.
-
 # InstalledDaemon seems problematic - we _want_ mdnsd, but it also
 # plays with /etc..
 mDNSResponder.build:
-	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux all
-	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
+	INSTBASE=$(BUILDDIR) $(MAKE) -C mDNSResponder/mDNSPosix os=linux all
+	INSTBASE=$(BUILDDIR) $(MAKE) -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
 	mkdir -p $(BUILDDIR)/sbin
 	cp mDNSResponder/mDNSPosix/build/prod/mdnsd $(BUILDDIR)/sbin
