@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Tue Mar 18 14:01:13 2014 mstenber
-# Edit time:     140 min
+# Last modified: Tue Mar 18 14:38:09 2014 mstenber
+# Edit time:     142 min
 #
 #
 
@@ -17,7 +17,6 @@
 
 HNETDIR?=$(CURDIR)/..
 BUILDDIR=$(HNETDIR)/build
-LUADIR=$(BUILDDIR)/share/lua/5.1
 BINDIR=$(BUILDDIR)/bin
 LIBDIR=$(BUILDDIR)/lib
 INCLUDEDIR=$(BUILDDIR)/include
@@ -40,29 +39,6 @@ include $(HNETDIR)/recmake.mk
 %.clean:
 	(cd $* && git clean -dfx .)
 
-luamd5.build:
-	$(MAKE) -C luamd5 PREFIX=$(BUILDDIR) LUA_INC=/usr/include/lua5.1
-	$(MAKE) -C luamd5 PREFIX=$(BUILDDIR) LUA_INC=/usr/include/lua5.1 install
-	$(MAKE) -C luamd5 PREFIX=$(BUILDDIR) LUA_INC=/usr/include/lua5.1 clean
-
-luasocket.build:
-	$(MAKE) -C luasocket prefix=$(BUILDDIR)
-	$(MAKE) -C luasocket prefix=$(BUILDDIR) install
-
-luavstruct.build:
-	rm -rf $(LUADIR)/vstruct
-	cp -a luavstruct/vstruct $(LUADIR)/vstruct
-
-bird.build:
-	if [ ! -f bird/configure ] ; then ( cd bird && autoconf ) ; fi
-	if [ ! -f bird/build/ipv4/Makefile ] ; then ( mkdir -p bird/build/ipv4 && cd bird/build/ipv4 && ../../configure $(BIRD_CONF) ) ; fi
-	$(MAKE) -C bird/build/ipv4 $(BIRD_MAKE)
-	if [ ! -f bird/build/ipv6/Makefile ] ; then ( mkdir -p bird/build/ipv6 && cd bird/build/ipv6 && ../../configure --with-lua-includes=/usr/include/lua5.1 --with-lua-suffix=5.1 --enable-ipv6 $(BIRD_CONF) ) ; fi
-	$(MAKE) -C bird/build/ipv6 $(BIRD_MAKE)
-	(cd bird/build/ipv4 && mv bird $(BINDIR)/bird4)
-	(cd bird/build/ipv4 && mv birdc $(BINDIR)/birdc4)
-	(cd bird/build/ipv6 && mv bird birdc $(BINDIR))
-
 dnsmasq.build:
 	$(MAKE) -C dnsmasq
 	mv dnsmasq/src/dnsmasq $(BINDIR)
@@ -75,29 +51,29 @@ json-c.build:
 	if [ ! -f json-c/configure ] ; then (cd json-c && ./autogen.sh ) ; fi
 	if [ ! -f json-c/Makefile ] ; then (cd json-c && ./configure --prefix=$(BUILDDIR)) ; fi
 	rm -rf $(INCLUDEDIR)/json
-	(cd json-c && make install)
+	(cd json-c && $(MAKE) -k install)
 	[ ! -L $(INCLUDEDIR)/json ] && ln -s json-c $(INCLUDEDIR)/json
 
 libubox.build:
-	(cd libubox && PKG_CONFIG_PATH=$(BUILDDIR)/lib/pkgconfig cmake $(CMAKE_DEFS) . && $(MAKE) install)
+	(cd libubox && PKG_CONFIG_PATH=$(BUILDDIR)/lib/pkgconfig cmake $(CMAKE_DEFS) . && $(MAKE) -k install)
 
 ubus.build:
-	(cd ubus && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
+	(cd ubus && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) -k install)
 
 uci.build:
-	(cd uci && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
+	(cd uci && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) -k install)
 
 odhcpd.build:
-	(cd odhcpd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
+	(cd odhcpd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) -k install)
 
 hnetd.build:
-	(cd hnetd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
+	(cd hnetd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) -k install)
 
 ohybridproxy.build:
-	(cd ohybridproxy && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
+	(cd ohybridproxy && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) -k install)
 
 babels.build:
-	$(MAKE) -C babels install PREFIX=$(BUILDDIR)
+	$(MAKE) -k -C babels install PREFIX=$(BUILDDIR)
 
 
 # default 'install' target tries to run all over /etc; so just use InstallX
@@ -106,7 +82,7 @@ babels.build:
 # InstalledDaemon seems problematic - we _want_ mdnsd, but it also
 # plays with /etc..
 mDNSResponder.build:
-	INSTBASE=$(BUILDDIR) $(MAKE) -C mDNSResponder/mDNSPosix os=linux all
-	INSTBASE=$(BUILDDIR) $(MAKE) -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
+	INSTBASE=$(BUILDDIR) $(MAKE) -k -C mDNSResponder/mDNSPosix os=linux all
+	INSTBASE=$(BUILDDIR) $(MAKE) -k -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
 	mkdir -p $(BUILDDIR)/sbin
 	cp mDNSResponder/mDNSPosix/build/prod/mdnsd $(BUILDDIR)/sbin
