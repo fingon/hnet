@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Tue Mar 18 14:39:06 2014 mstenber
-# Edit time:     143 min
+# Last modified: Tue Mar 18 14:47:57 2014 mstenber
+# Edit time:     147 min
 #
 #
 
@@ -57,19 +57,19 @@ json-c.build:
 libubox.build:
 	(cd libubox && PKG_CONFIG_PATH=$(BUILDDIR)/lib/pkgconfig cmake $(CMAKE_DEFS) . && $(MAKE) install)
 
-ubus.build:
+ubus.build: libubox.build
 	(cd ubus && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
-uci.build:
+uci.build: ubus.build
 	(cd uci && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
-odhcpd.build:
+odhcpd.build: uci.build
 	(cd odhcpd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
-hnetd.build:
+hnetd.build: uci.build
 	(cd hnetd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
-ohybridproxy.build:
+ohybridproxy.build: uci.build mDNSResponder.build
 	(cd ohybridproxy && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 babels.build:
@@ -79,10 +79,12 @@ babels.build:
 # default 'install' target tries to run all over /etc; so just use InstallX
 # subtargets
 
+# -j N doesn't seem to work too well here - so calling make by hand.
+
 # InstalledDaemon seems problematic - we _want_ mdnsd, but it also
 # plays with /etc..
 mDNSResponder.build:
-	INSTBASE=$(BUILDDIR) $(MAKE) -C mDNSResponder/mDNSPosix os=linux all
-	INSTBASE=$(BUILDDIR) $(MAKE) -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
+	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux all
+	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
 	mkdir -p $(BUILDDIR)/sbin
 	cp mDNSResponder/mDNSPosix/build/prod/mdnsd $(BUILDDIR)/sbin
