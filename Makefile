@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Mon Mar 17 12:45:39 2014 mstenber
-# Edit time:     62 min
+# Last modified: Wed Mar 19 14:29:58 2014 mstenber
+# Edit time:     63 min
 #
 
 HNETDIR=$(CURDIR)
@@ -67,6 +67,7 @@ setup-debianish:
 # instead of the default ro url
 rw: sync rewrite-git-urls-rw
 	git submodule foreach --recursive 'git checkout master || true'
+	( cd component/babels && git checkout source-specific )
 
 update-owrt:
 	python util/rewrite-feed-makefiles.py
