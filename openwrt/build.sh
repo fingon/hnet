@@ -8,8 +8,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 20:11:27 2013 mstenber
-# Last modified: Mon Feb 24 12:06:41 2014 mstenber
-# Edit time:     47 min
+# Last modified: Thu Mar 20 13:20:38 2014 mstenber
+# Edit time:     49 min
 #
 
 # V2
@@ -58,7 +58,7 @@ then
     fi
 fi
 
-if [ ! -f $INSTALLED_FILE ]
+if [ ! -f $INSTALLED_FILE -o ! -f dist/feeds.conf ]
 then
     if [ -L dist/.config ]
     then 
@@ -69,8 +69,9 @@ then
         echo "dist/.config is non-symlink! Something is horribly wrong (1)."
         exit 1
     fi
-    cp dist/feeds.conf.default dist/feeds.conf
+    egrep -v openwrt-routing < dist/feeds.conf.default > dist/feeds.conf
     echo "src-link hnet "`pwd`/feed >> dist/feeds.conf
+    echo "src-link routing "`pwd`/routing >> dist/feeds.conf
     (cd dist && scripts/feeds update)
 
     # Get rid of existing packages; this way, we'll have consistent builds

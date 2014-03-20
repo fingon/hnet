@@ -40,3 +40,6 @@
 [submodule "component/mDNSResponder"]
 	path = component/mDNSResponder
 	url = git://github.com/fingon/mDNSResponder.git
+[submodule "openwrt/routing"]
+	path = openwrt/routing
+	url = git://github.com/fingon/openwrt-routing.git
