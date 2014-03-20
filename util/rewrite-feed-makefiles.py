@@ -9,8 +9,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 16:33:42 2013 mstenber
-# Last modified: Tue Feb 18 20:52:43 2014 mstenber
-# Edit time:     27 min
+# Last modified: Thu Mar 20 10:23:10 2014 mstenber
+# Edit time:     32 min
 #
 """
 
@@ -42,19 +42,25 @@ owrt2component = {
     #'luavstruct': 'luavstruct'
 
     # Version 3 (=hnetd + babels(=hnet-babeld))
-    'hnetd': 'hnetd',
-    'hnet-babeld' : 'babels',
-    'ohybridproxy': 'ohybridproxy',
+    'dist/package/network/ipv6/odhcp6c' : 'odhcp6c',
+    'dist/package/network/services/odhcpd' : 'odhcpd',
+    'routing/hnetd' : 'hnetd',
+    'routing/babels' : 'babels',
+    'routing/ohybridproxy' : 'ohybridproxy',
 
     }
 
 ts = datetime.datetime.now().strftime('%Y-%m-%d')
 for owname, cname in owrt2component.items():
     component_version = shell_to_string('(cd component/%(cname)s && git rev-parse HEAD)' % locals())
-    assert component_version, 'unable to get component version for %s' % cname
-    owmakefile = os.path.join('openwrt', 'feed', owname, 'Makefile')
+    if not component_version:
+        print '!!! unable to get component version for %s' % cname
+        continue
+    owmakefile = os.path.join('openwrt', owname, 'Makefile')
     owrt_version = shell_to_string("egrep '^PKG_SOURCE_VERSION' '%(owmakefile)s' | cut -d '=' -f 2" % locals())
-    assert owrt_version, 'unable to get openwrt version for %s' % cname
+    if not owrt_version:
+        print '!!! unable to get openwrt version for %s' % cname
+        continue
     print owname, component_version, ts
     if owrt_version != component_version:
         print 'Upgrading', cname, owrt_version, component_version
@@ -71,4 +77,4 @@ for owname, cname in owrt2component.items():
             f = open(apath)
         except:
             cmd = 'sh -c "(cd component/%(cname)s && git archive --format=tar --prefix=%(abase)s/ HEAD) | bzip2 -9 > %(apath)s"' % locals()
-            print '#', cmd
+            #print '#', cmd
