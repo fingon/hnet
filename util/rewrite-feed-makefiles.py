@@ -9,8 +9,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 16:33:42 2013 mstenber
-# Last modified: Thu Mar 20 10:23:10 2014 mstenber
-# Edit time:     32 min
+# Last modified: Fri Mar 21 10:55:46 2014 mstenber
+# Edit time:     35 min
 #
 """
 
@@ -44,6 +44,7 @@ owrt2component = {
     # Version 3 (=hnetd + babels(=hnet-babeld))
     'dist/package/network/ipv6/odhcp6c' : 'odhcp6c',
     'dist/package/network/services/odhcpd' : 'odhcpd',
+    'dist/package/libs/libubox': 'libubox',
     'routing/hnetd' : 'hnetd',
     'routing/babels' : 'babels',
     'routing/ohybridproxy' : 'ohybridproxy',
