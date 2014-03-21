@@ -9,8 +9,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 16:33:42 2013 mstenber
-# Last modified: Fri Mar 21 10:55:46 2014 mstenber
-# Edit time:     35 min
+# Last modified: Fri Mar 21 11:54:22 2014 mstenber
+# Edit time:     36 min
 #
 """
 
@@ -71,6 +71,7 @@ for owname, cname in owrt2component.items():
         cmd = "perl -i.bak -pe 's/^PKG_VERSION.*$/PKG_VERSION:=%(ts)s-\$(PKG_SOURCE_VERSION)/' '%(owmakefile)s'" % locals()
         #print cmd
         os.system(cmd)
+        os.unlink('%(owmakefile)s.bak' % locals())
         abase= '%s-%s-%s' % (owname, ts, component_version)
         aname = abase + '.tar.bz2'
         apath = '%s/%s' % ('openwrt/dist/dl', aname)
