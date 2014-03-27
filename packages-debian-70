@@ -1,6 +1,7 @@
 # Package list
 # -*- text -*-
 autoconf
+bc
 bison 
 ccache
 cmake
@@ -10,6 +11,7 @@ g++
 gawk
 gcc 
 gettext
+libcap-dev
 liblua5.1-dev
 libncurses-dev
 libpcap-dev
@@ -17,4 +19,3 @@ libreadline6-dev
 libtool
 subversion
 zlib1g-dev
-bc
