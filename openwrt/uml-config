@@ -1108,6 +1108,7 @@ CONFIG_BUSYBOX_DEFAULT_FEATURE_IPC_SYSLOG_BUFFER_SIZE=0
 # CONFIG_BUSYBOX_DEFAULT_KLOGD is not set
 # CONFIG_BUSYBOX_DEFAULT_FEATURE_KLOGD_KLOGCTL is not set
 CONFIG_BUSYBOX_DEFAULT_LOGGER=y
+# CONFIG_PACKAGE_ca-certificates is not set
 CONFIG_PACKAGE_dnsmasq=y
 # CONFIG_PACKAGE_dnsmasq-dhcpv6 is not set
 CONFIG_PACKAGE_dropbear=y
@@ -1164,6 +1165,10 @@ CONFIG_PACKAGE_valgrind-vgdb=y
 # Extra packages
 #
 CONFIG_PACKAGE_netkit=y
+
+#
+# Firmware
+#
 
 #
 # IPv6
@@ -1409,6 +1414,8 @@ CONFIG_PACKAGE_kmod-ipt-nathelper=y
 # CONFIG_PACKAGE_kmod-ip6-tunnel is not set
 # CONFIG_PACKAGE_kmod-ipip is not set
 # CONFIG_PACKAGE_kmod-ipsec is not set
+CONFIG_PACKAGE_kmod-iptunnel=y
+CONFIG_PACKAGE_kmod-iptunnel4=y
 # CONFIG_PACKAGE_kmod-iptunnel6 is not set
 CONFIG_PACKAGE_kmod-ipv6=y
 # CONFIG_PACKAGE_kmod-isdn4linux is not set
@@ -1432,7 +1439,7 @@ CONFIG_PACKAGE_kmod-pppox=y
 # CONFIG_PACKAGE_kmod-sched-core is not set
 # CONFIG_PACKAGE_kmod-sched-esfq is not set
 # CONFIG_PACKAGE_kmod-sctp is not set
-# CONFIG_PACKAGE_kmod-sit is not set
+CONFIG_PACKAGE_kmod-sit=y
 CONFIG_PACKAGE_kmod-slhc=y
 # CONFIG_PACKAGE_kmod-slip is not set
 # CONFIG_PACKAGE_kmod-stp is not set
@@ -1577,6 +1584,7 @@ CONFIG_PACKAGE_libxtables=y
 # CONFIG_PACKAGE_libblkid is not set
 CONFIG_PACKAGE_libblobmsg-json=y
 # CONFIG_PACKAGE_libbz2 is not set
+CONFIG_PACKAGE_libcap=y
 # CONFIG_PACKAGE_libcharset is not set
 # CONFIG_PACKAGE_libconfig is not set
 # CONFIG_PACKAGE_libcurl is not set
@@ -1638,6 +1646,7 @@ CONFIG_PACKAGE_libpcap=y
 # CONFIG_PACKAGE_libpng is not set
 CONFIG_PACKAGE_libpopt=y
 CONFIG_PACKAGE_libreadline=y
+# CONFIG_PACKAGE_libroxml is not set
 # CONFIG_PACKAGE_librpc is not set
 # CONFIG_PACKAGE_librrd1 is not set
 # CONFIG_PACKAGE_libsensors is not set
@@ -1665,7 +1674,7 @@ CONFIG_PACKAGE_libuci-lua=y
 # CONFIG_PACKAGE_linux-atm is not set
 CONFIG_PACKAGE_terminfo=y
 # CONFIG_PACKAGE_uclibcxx is not set
-# CONFIG_PACKAGE_zlib is not set
+CONFIG_PACKAGE_zlib=y
 
 #
 # LuCI
@@ -2038,7 +2047,7 @@ CONFIG_PACKAGE_uhttpd=y
 # CONFIG_PACKAGE_uhttpd-mod-tls is not set
 CONFIG_PACKAGE_uhttpd-mod-ubus=y
 # CONFIG_PACKAGE_6in4 is not set
-# CONFIG_PACKAGE_6rd is not set
+CONFIG_PACKAGE_6rd=y
 # CONFIG_PACKAGE_6relayd is not set
 # CONFIG_PACKAGE_6to4 is not set
 # CONFIG_PACKAGE_ahcpd is not set
@@ -2221,6 +2230,7 @@ CONFIG_PACKAGE_procps-vmstat=y
 CONFIG_PACKAGE_procps-w=y
 CONFIG_PACKAGE_procps-watch=y
 # CONFIG_PACKAGE_px5g is not set
+# CONFIG_PACKAGE_px5g-standalone is not set
 # CONFIG_PACKAGE_rename is not set
 # CONFIG_PACKAGE_robocfg is not set
 # CONFIG_PACKAGE_rrdcgi1 is not set
