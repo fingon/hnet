@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Thu Apr  3 15:09:08 2014 mstenber
-# Edit time:     158 min
+# Last modified: Thu Apr  3 15:15:51 2014 mstenber
+# Edit time:     159 min
 #
 #
 
@@ -84,11 +84,11 @@ babels.build:
 # plays with /etc..
 mDNSResponder.build:
 	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux all
-	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
 	mkdir -p $(BUILDDIR)/bin
 	mkdir -p $(BUILDDIR)/include
 	mkdir -p $(BUILDDIR)/lib
 	mkdir -p $(BUILDDIR)/sbin
+	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
 	cp mDNSResponder/mDNSPosix/build/prod/mdnsd $(BUILDDIR)/sbin
 
 check: hnetd.build
