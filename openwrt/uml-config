@@ -130,6 +130,9 @@ CONFIG_SHADOW_PASSWORDS=y
 #
 # Kernel build options
 #
+CONFIG_KERNEL_PRINTK=y
+CONFIG_KERNEL_CRASHLOG=y
+# CONFIG_KERNEL_SWAP is not set
 CONFIG_KERNEL_DEBUG_FS=y
 # CONFIG_KERNEL_PERF_EVENTS is not set
 # CONFIG_KERNEL_PROFILING is not set
@@ -2262,6 +2265,7 @@ CONFIG_PACKAGE_procps-watch=y
 # CONFIG_PACKAGE_spidev-test is not set
 CONFIG_PACKAGE_strace=y
 # CONFIG_PACKAGE_tiff-utils is not set
+# CONFIG_PACKAGE_ubi-utils is not set
 # CONFIG_PACKAGE_uboot-envtools is not set
 # CONFIG_PACKAGE_usb-modeswitch is not set
 # CONFIG_PACKAGE_usbreset is not set
