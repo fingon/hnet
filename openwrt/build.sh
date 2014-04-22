@@ -8,7 +8,7 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 20:11:27 2013 mstenber
-# Last modified: Thu Mar 20 13:20:38 2014 mstenber
+# Last modified: Tue Apr 22 12:03:42 2014 mstenber
 # Edit time:     49 min
 #
 
@@ -31,19 +31,6 @@ install_packages () {
         (cd dist && scripts/feeds install $PACKAGE)
     done
 }
-
-# Handle ${1}-files/ to dist/
-rm -rf dist/files
-# Special case; no files for uml!
-if [ ! "x$1" = "xuml" ]
-then
-    mkdir -p dist/files
-    rsync -a base-files/ dist/files/
-    if [ -d "${1}-files" ]
-    then
-      rsync -a ${1}-files/ dist/files/
-    fi
-fi
 
 # Update feeds.conf, update list of available feeds, and install hnet+netkit
 # packages explicitly
