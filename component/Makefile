@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Thu Apr  3 15:15:51 2014 mstenber
-# Edit time:     159 min
+# Last modified: Mon May 12 14:59:44 2014 mstenber
+# Edit time:     162 min
 #
 #
 
@@ -32,7 +32,8 @@ CMAKE_DEFS=\
 SUBDIRS=babels dnsmasq odhcp6c \
 	json-c libubox uci \
 	odhcpd hnetd \
-	mDNSResponder ohybridproxy
+	mDNSResponder ohybridproxy \
+	minimalist-pcproxy
 
 include $(HNETDIR)/recmake.mk
 
@@ -54,7 +55,7 @@ json-c.build:
 	if [ ! -f json-c/Makefile ] ; then (cd json-c && ./configure --prefix=$(BUILDDIR)) ; fi
 	rm -rf $(INCLUDEDIR)/json
 	(cd json-c && $(MAKE) install)
-	[ ! -L $(INCLUDEDIR)/json ] && ln -s json-c $(INCLUDEDIR)/json
+	[ ! -L $(INCLUDEDIR)/json ] && ln -s json-c $(INCLUDEDIR)/json || true
 
 libubox.build: json-c.build
 	(cd libubox && PKG_CONFIG_PATH=$(BUILDDIR)/lib/pkgconfig cmake $(CMAKE_DEFS) . && $(MAKE) install)
@@ -70,6 +71,9 @@ hnetd.build: uci.build
 
 ohybridproxy.build: uci.build mDNSResponder.build
 	(cd ohybridproxy && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
+
+minimalist-pcproxy.build: uci.build mDNSResponder.build
+	(cd minimalist-pcproxy && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 babels.build:
 	$(MAKE) -C babels install PREFIX=$(BUILDDIR)
