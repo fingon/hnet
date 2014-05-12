@@ -21,7 +21,7 @@
 	url = git://github.com/sbyx/hnetd.git
 [submodule "component/libubox"]
 	path = component/libubox
-	url = git://nbd.name/luci2/libubox.git
+	url = http://git.openwrt.org/project/libubox.git
 [submodule "component/json-c"]
 	path = component/json-c
 	url = git://github.com/json-c/json-c.git
@@ -43,3 +43,6 @@
 [submodule "openwrt/routing"]
 	path = openwrt/routing
 	url = git://github.com/fingon/openwrt-routing.git
+[submodule "component/minimalist-pcproxy"]
+	path = component/minimalist-pcproxy
+	url = https://github.com/fingon/minimalist-pcproxy.git
