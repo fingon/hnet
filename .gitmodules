@@ -45,4 +45,4 @@
 	url = git://github.com/fingon/openwrt-routing.git
 [submodule "component/minimalist-pcproxy"]
 	path = component/minimalist-pcproxy
-	url = https://github.com/fingon/minimalist-pcproxy.git
+	url = git://github.com/fingon/minimalist-pcproxy.git
