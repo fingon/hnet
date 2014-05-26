@@ -19,3 +19,9 @@ libreadline6-dev
 libtool
 subversion
 zlib1g-dev
+
+# For miniupnpd
+# <libnfnetlink/*.h>
+libnfnetlink-dev
+# <xtables.h>
+iptables-dev

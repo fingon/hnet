@@ -140,7 +140,7 @@ CONFIG_KERNEL_KALLSYMS=y
 # CONFIG_KERNEL_FTRACE is not set
 CONFIG_KERNEL_DEBUG_KERNEL=y
 CONFIG_KERNEL_DEBUG_INFO=y
-# CONFIG_KERNEL_DYNAMIC_DEBUG is not set
+CONFIG_KERNEL_DYNAMIC_DEBUG=y
 # CONFIG_KERNEL_AIO is not set
 # CONFIG_KERNEL_DIRECT_IO is not set
 CONFIG_KERNEL_MAGIC_SYSRQ=y
@@ -1656,7 +1656,7 @@ CONFIG_PACKAGE_libncurses=y
 # CONFIG_PACKAGE_libnetfilter-conntrack is not set
 # CONFIG_PACKAGE_libnetsnmp is not set
 # CONFIG_PACKAGE_libnettle is not set
-# CONFIG_PACKAGE_libnfnetlink is not set
+CONFIG_PACKAGE_libnfnetlink=y
 # CONFIG_PACKAGE_libnl is not set
 CONFIG_PACKAGE_libnl-tiny=y
 # CONFIG_PACKAGE_libogg is not set
@@ -1670,7 +1670,7 @@ CONFIG_PACKAGE_libpcap=y
 CONFIG_PACKAGE_libpopt=y
 CONFIG_PACKAGE_libreadline=y
 # CONFIG_PACKAGE_libroxml is not set
-# CONFIG_PACKAGE_librpc is not set
+CONFIG_PACKAGE_librpc=y
 # CONFIG_PACKAGE_librrd1 is not set
 # CONFIG_PACKAGE_libsensors is not set
 # CONFIG_PACKAGE_libsocks is not set
@@ -1924,7 +1924,7 @@ CONFIG_PACKAGE_iptables=y
 # CONFIG_PACKAGE_iptables-mod-ulog is not set
 # CONFIG_PACKAGE_iptaccount is not set
 # CONFIG_PACKAGE_miniupnpc is not set
-# CONFIG_PACKAGE_miniupnpd is not set
+CONFIG_PACKAGE_miniupnpd=y
 
 #
 # IP Addresses and Names
@@ -2080,6 +2080,7 @@ CONFIG_PACKAGE_6rd=y
 # CONFIG_PACKAGE_authsae is not set
 # CONFIG_PACKAGE_chat is not set
 # CONFIG_PACKAGE_ds-lite is not set
+# CONFIG_PACKAGE_eapol-test is not set
 # CONFIG_PACKAGE_etherwake is not set
 CONFIG_PACKAGE_hnet-full=y
 CONFIG_PACKAGE_hnetd=y
@@ -2106,6 +2107,7 @@ CONFIG_PACKAGE_hostapd-common=y
 # CONFIG_PACKAGE_iputils-traceroute6 is not set
 CONFIG_PACKAGE_iw=y
 # CONFIG_PACKAGE_mac-to-devinfo is not set
+CONFIG_PACKAGE_minimalist-pcproxy=y
 # CONFIG_PACKAGE_multiwan is not set
 # CONFIG_PACKAGE_netdiscover is not set
 # CONFIG_PACKAGE_netdiscover-to-devinfo is not set
@@ -2237,6 +2239,7 @@ CONFIG_PACKAGE_libjson-script=y
 # CONFIG_PACKAGE_logger is not set
 # CONFIG_PACKAGE_look is not set
 # CONFIG_PACKAGE_losetup is not set
+CONFIG_PACKAGE_lsof=y
 # CONFIG_PACKAGE_maccalc is not set
 # CONFIG_PACKAGE_mcookie is not set
 # CONFIG_PACKAGE_mdadm is not set

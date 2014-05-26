@@ -9,7 +9,7 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 16:33:42 2013 mstenber
-# Last modified: Fri Mar 21 11:54:22 2014 mstenber
+# Last modified: Tue May 20 16:46:50 2014 mstenber
 # Edit time:     36 min
 #
 """
@@ -48,6 +48,7 @@ owrt2component = {
     'routing/hnetd' : 'hnetd',
     'routing/babels' : 'babels',
     'routing/ohybridproxy' : 'ohybridproxy',
+    'routing/minimalist-pcproxy' : 'minimalist-pcproxy',
 
     }
 
