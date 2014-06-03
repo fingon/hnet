@@ -94,6 +94,13 @@ CONFIG_EXTERNAL_CPIO=""
 # Root filesystem images
 #
 CONFIG_TARGET_ROOTFS_EXT4FS=y
+CONFIG_TARGET_EXT4_MAXINODE=6000
+CONFIG_TARGET_EXT4_RESERVED_PCT=0
+CONFIG_TARGET_EXT4_BLOCKSIZE_4K=y
+# CONFIG_TARGET_EXT4_BLOCKSIZE_2K is not set
+# CONFIG_TARGET_EXT4_BLOCKSIZE_1K is not set
+CONFIG_TARGET_EXT4_BLOCKSIZE=4096
+# CONFIG_TARGET_EXT4_JOURNAL is not set
 # CONFIG_TARGET_ROOTFS_JFFS2 is not set
 # CONFIG_TARGET_ROOTFS_SQUASHFS is not set
 CONFIG_TARGET_UBIFS_FREE_SPACE_FIXUP=y
@@ -104,8 +111,6 @@ CONFIG_TARGET_IMAGES_GZIP=y
 # Image Options
 #
 CONFIG_TARGET_ROOTFS_PARTSIZE=64
-CONFIG_TARGET_ROOTFS_MAXINODE=6000
-CONFIG_TARGET_ROOTFS_RESERVED_PCT=0
 # CONFIG_TARGET_ROOTFS_INCLUDE_KERNEL is not set
 CONFIG_TARGET_ROOTFS_INCLUDE_UIMAGE=y
 CONFIG_TARGET_ROOTFS_INCLUDE_ZIMAGE=y
@@ -187,7 +192,6 @@ CONFIG_TARGET_ROOTFS_DIR=""
 CONFIG_CCACHE=y
 CONFIG_EXTERNAL_KERNEL_TREE=""
 CONFIG_KERNEL_GIT_CLONE_URI=""
-CONFIG_KERNEL_GIT_LOCAL_REPOSITORY=""
 # CONFIG_BUILD_LOG is not set
 # CONFIG_SRC_TREE_OVERRIDE is not set
 CONFIG_EXTRA_OPTIMIZATION="-fno-caller-saves"
@@ -1375,6 +1379,7 @@ CONFIG_PACKAGE_kmod-lib-crc-ccitt=y
 # CONFIG_PACKAGE_kmod-arptables is not set
 # CONFIG_PACKAGE_kmod-ebtables is not set
 CONFIG_PACKAGE_kmod-ip6tables=y
+# CONFIG_PACKAGE_kmod-ip6tables-extra is not set
 # CONFIG_PACKAGE_kmod-ipt-account is not set
 # CONFIG_PACKAGE_kmod-ipt-chaos is not set
 # CONFIG_PACKAGE_kmod-ipt-compat-xtables is not set
@@ -1908,6 +1913,7 @@ CONFIG_PACKAGE_rsync=y
 # CONFIG_PACKAGE_conntrack-tools is not set
 # CONFIG_PACKAGE_ebtables is not set
 CONFIG_PACKAGE_ip6tables=y
+# CONFIG_PACKAGE_ip6tables-extra is not set
 # CONFIG_PACKAGE_ip6tables-mod-nat is not set
 CONFIG_PACKAGE_iptables=y
 # CONFIG_PACKAGE_iptables-mod-account is not set
@@ -2096,7 +2102,6 @@ CONFIG_PACKAGE_uhttpd=y
 CONFIG_PACKAGE_uhttpd-mod-ubus=y
 # CONFIG_PACKAGE_6in4 is not set
 CONFIG_PACKAGE_6rd=y
-# CONFIG_PACKAGE_6relayd is not set
 # CONFIG_PACKAGE_6to4 is not set
 # CONFIG_PACKAGE_ahcpd is not set
 # CONFIG_PACKAGE_authsae is not set
@@ -2206,7 +2211,6 @@ CONFIG_PACKAGE_wpad-mini=y
 #
 # CONFIG_PACKAGE_certtool is not set
 # CONFIG_PACKAGE_gnutls-utils is not set
-# CONFIG_PACKAGE_polarssl-progs is not set
 
 #
 # Terminal
