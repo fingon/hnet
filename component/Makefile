@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Mon May 12 14:59:44 2014 mstenber
-# Edit time:     162 min
+# Last modified: Thu Jun 12 12:41:04 2014 mstenber
+# Edit time:     168 min
 #
 #
 
@@ -52,9 +52,9 @@ odhcp6c.build:
 
 json-c.build:
 	if [ ! -f json-c/configure ] ; then (cd json-c && ./autogen.sh ) ; fi
-	if [ ! -f json-c/Makefile ] ; then (cd json-c && ./configure --prefix=$(BUILDDIR)) ; fi
+	if [ ! -f json-c/Makefile ] ; then (cd json-c && ./configure --prefix=$(BUILDDIR) --disable-dependency-tracking ) ; fi
 	rm -rf $(INCLUDEDIR)/json
-	(cd json-c && $(MAKE) install)
+	(cd json-c && $(MAKE) -j 1 install)
 	[ ! -L $(INCLUDEDIR)/json ] && ln -s json-c $(INCLUDEDIR)/json || true
 
 libubox.build: json-c.build
