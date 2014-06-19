@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Thu Jun 12 15:29:10 2014 mstenber
-# Edit time:     176 min
+# Last modified: Thu Jun 19 11:50:32 2014 mstenber
+# Edit time:     177 min
 #
 #
 
@@ -68,7 +68,7 @@ odhcpd.build: uci.build
 	(cd odhcpd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 hnetd.build: uci.build
-	(cd hnetd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
+	(cd hnetd && cmake $(CMAKE_DEFS) -DL_LEVEL=7 . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 ohybridproxy.build: uci.build mDNSResponder.build
 	(cd ohybridproxy && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
