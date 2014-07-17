@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Thu Jun 19 11:50:32 2014 mstenber
-# Edit time:     177 min
+# Last modified: Thu Jul 17 11:09:10 2014 mstenber
+# Edit time:     183 min
 #
 #
 
@@ -77,6 +77,7 @@ minimalist-pcproxy.build: uci.build mDNSResponder.build
 	(cd minimalist-pcproxy && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 babels.build:
+	if [ ! -f babels/version.h ] ; then echo '#define BABEL_VERSION "hnet"' > babels/version.h ; fi
 	$(MAKE) -C babels install PREFIX=$(BUILDDIR)
 
 
