@@ -36,6 +36,7 @@ CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_kirkwood is not set
 # CONFIG_TARGET_orion is not set
 # CONFIG_TARGET_pxa is not set
+# CONFIG_TARGET_rb532 is not set
 # CONFIG_TARGET_mcs814x is not set
 # CONFIG_TARGET_au1000 is not set
 # CONFIG_TARGET_ramips is not set
@@ -1151,7 +1152,7 @@ CONFIG_PACKAGE_dropbear=y
 # CONFIG_PACKAGE_ead is not set
 CONFIG_PACKAGE_firewall=y
 CONFIG_PACKAGE_fstools=y
-# CONFIG_PACKAGE_jsonfilter is not set
+CONFIG_PACKAGE_jsonfilter=y
 CONFIG_PACKAGE_libc=y
 CONFIG_PACKAGE_libgcc=y
 CONFIG_PACKAGE_libpthread=y
@@ -1363,6 +1364,7 @@ CONFIG_PACKAGE_kmod-lib-crc-ccitt=y
 # CONFIG_PACKAGE_kmod-nls-cp862 is not set
 # CONFIG_PACKAGE_kmod-nls-cp864 is not set
 # CONFIG_PACKAGE_kmod-nls-cp866 is not set
+# CONFIG_PACKAGE_kmod-nls-cp932 is not set
 # CONFIG_PACKAGE_kmod-nls-iso8859-1 is not set
 # CONFIG_PACKAGE_kmod-nls-iso8859-13 is not set
 # CONFIG_PACKAGE_kmod-nls-iso8859-15 is not set
@@ -1590,6 +1592,8 @@ CONFIG_PACKAGE_lua=y
 #
 # Filesystem
 #
+# CONFIG_PACKAGE_libacl is not set
+# CONFIG_PACKAGE_libattr is not set
 # CONFIG_PACKAGE_libext2fs is not set
 # CONFIG_PACKAGE_libfuse is not set
 # CONFIG_PACKAGE_libsysfs is not set
@@ -1758,6 +1762,8 @@ CONFIG_PACKAGE_luci-lib-nixio_notls=y
 #
 # CONFIG_PACKAGE_curl is not set
 CONFIG_PACKAGE_rsync=y
+# CONFIG_RSYNC_xattr is not set
+# CONFIG_RSYNC_acl is not set
 # CONFIG_PACKAGE_rsyncd is not set
 
 #
@@ -1961,6 +1967,7 @@ CONFIG_PACKAGE_hostapd-common=y
 # CONFIG_PACKAGE_iputils-traceroute6 is not set
 CONFIG_PACKAGE_iw=y
 # CONFIG_PACKAGE_map is not set
+# CONFIG_PACKAGE_mdns is not set
 CONFIG_PACKAGE_minimalist-pcproxy=y
 CONFIG_PACKAGE_odhcp6c=y
 CONFIG_PACKAGE_odhcp6c_ext_prefix_class=200
@@ -2008,6 +2015,8 @@ CONFIG_PACKAGE_wpad-mini=y
 #
 # Filesystem
 #
+# CONFIG_PACKAGE_acl is not set
+# CONFIG_PACKAGE_attr is not set
 # CONFIG_PACKAGE_badblocks is not set
 # CONFIG_PACKAGE_e2fsprogs is not set
 # CONFIG_PACKAGE_fuse-utils is not set
