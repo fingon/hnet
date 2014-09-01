@@ -3,7 +3,7 @@
 	url = git://github.com/fingon/hnet-openwrt-feed.git
 [submodule "openwrt/dist"]
 	path = openwrt/dist
-	url = git://github.com/fingon/openwrt.git
+	url = git://git.openwrt.org/openwrt.git
 [submodule "netkit"]
 	path = netkit
 	url = git://github.com/fingon/netkit.git
