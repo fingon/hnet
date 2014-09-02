@@ -27,7 +27,7 @@
 	url = git://github.com/json-c/json-c.git
 [submodule "component/babels"]
 	path = component/babels
-	url = git://git.wifi.pps.univ-paris-diderot.fr/babels
+	url = https://github.com/boutier/babeld.git
 [submodule "component/ohybridproxy"]
 	path = component/ohybridproxy
 	url = git://github.com/sbyx/ohybridproxy.git
