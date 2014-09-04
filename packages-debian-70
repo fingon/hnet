@@ -25,3 +25,6 @@ zlib1g-dev
 libnfnetlink-dev
 # <xtables.h>
 iptables-dev
+
+# For OpenWrt
+unzip
