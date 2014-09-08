@@ -1867,7 +1867,7 @@ CONFIG_PACKAGE_ohybridproxy=y
 CONFIG_PACKAGE_babels=y
 # CONFIG_PACKAGE_genl is not set
 # CONFIG_PACKAGE_igmpproxy is not set
-CONFIG_PACKAGE_ip=y
+# CONFIG_PACKAGE_ip is not set
 CONFIG_PACKAGE_ip-full=y
 # CONFIG_PACKAGE_lldpd is not set
 # CONFIG_PACKAGE_relayd is not set
