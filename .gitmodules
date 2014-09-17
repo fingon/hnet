@@ -42,7 +42,7 @@
 	url = git://github.com/fingon/mDNSResponder.git
 [submodule "openwrt/routing"]
 	path = openwrt/routing
-	url = git://github.com/fingon/openwrt-routing.git
+	url = git://github.com/openwrt-routing/packages.git
 [submodule "component/minimalist-pcproxy"]
 	path = component/minimalist-pcproxy
 	url = git://github.com/fingon/minimalist-pcproxy.git
