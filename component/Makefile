@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Thu Jul 17 11:09:10 2014 mstenber
-# Edit time:     183 min
+# Last modified: Thu Sep 25 17:25:16 2014 mstenber
+# Edit time:     188 min
 #
 #
 
@@ -33,7 +33,7 @@ SUBDIRS=babels dnsmasq odhcp6c \
 	json-c libubox uci \
 	odhcpd hnetd \
 	mDNSResponder ohybridproxy \
-	minimalist-pcproxy
+	miniupnp minimalist-pcproxy
 
 include $(HNETDIR)/recmake.mk
 
@@ -80,6 +80,8 @@ babels.build:
 	if [ ! -f babels/version.h ] ; then echo '#define BABEL_VERSION "hnet"' > babels/version.h ; fi
 	$(MAKE) -C babels install PREFIX=$(BUILDDIR)
 
+miniupnp.build:
+	PREFIX=$(BUILDDIR) INSTALLPREFIX=$(BUILDDIR) CONFIG_OPTIONS=--ipv6 $(MAKE) -C miniupnp/miniupnpd -f Makefile.linux install
 
 # default 'install' target tries to run all over /etc; so just use InstallX
 # subtargets
@@ -88,6 +90,9 @@ babels.build:
 
 # InstalledDaemon seems problematic - we _want_ mdnsd, but it also
 # plays with /etc..
+
+# The libdns_sd symlink automatically created is absolute; won't work
+# in netkit labs, so fix it.
 mDNSResponder.build:
 	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux all
 	mkdir -p $(BUILDDIR)/bin
@@ -96,6 +101,8 @@ mDNSResponder.build:
 	mkdir -p $(BUILDDIR)/sbin
 	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
 	cp mDNSResponder/mDNSPosix/build/prod/mdnsd $(BUILDDIR)/sbin
+	ln -sf libdns_sd.so.1 $(BUILDDIR)/lib/libdns_sd.so
+
 
 check: hnetd.build
 	LD_LIBRARY_PATH=$(LIBDIR) make -C hnetd check
