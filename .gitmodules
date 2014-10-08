@@ -46,3 +46,6 @@
 [submodule "component/minimalist-pcproxy"]
 	path = component/minimalist-pcproxy
 	url = git://github.com/fingon/minimalist-pcproxy.git
+[submodule "component/miniupnp"]
+	path = component/miniupnp
+	url = https://github.com/miniupnp/miniupnp
