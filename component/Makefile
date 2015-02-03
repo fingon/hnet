@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Thu Sep 25 17:25:16 2014 mstenber
-# Edit time:     188 min
+# Last modified: Thu Nov  6 13:09:19 2014 mstenber
+# Edit time:     196 min
 #
 #
 
@@ -23,11 +23,17 @@ INCLUDEDIR=$(BUILDDIR)/include
 
 CMAKE_DEFS=\
   -DCMAKE_INSTALL_PREFIX:PATH=$(BUILDDIR) \
-  -DCMAKE_C_FLAGS=-I$(INCLUDEDIR) \
+  -DCMAKE_C_FLAGS="-I$(INCLUDEDIR)" \
   -DCMAKE_SHARED_LINKER_FLAGS=-L$(LIBDIR) \
   -DCMAKE_EXE_LINKER_FLAGS="-L$(LIBDIR)" \
   -DBUILD_LUA=OFF \
   -DENABLE_SYSTEMD=OFF
+
+# cyassl to replace openssl
+# -I$(INCLUDEDIR)/cyassl
+
+#TLS=-DDTLS_CYASSL=1
+TLS=-DDTLS_OPENSSL=1
 
 SUBDIRS=babels dnsmasq odhcp6c \
 	json-c libubox uci \
@@ -68,7 +74,7 @@ odhcpd.build: uci.build
 	(cd odhcpd && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 hnetd.build: uci.build
-	(cd hnetd && cmake $(CMAKE_DEFS) -DL_LEVEL=7 . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
+	(cd hnetd && cmake $(CMAKE_DEFS) $(TLS) -DL_LEVEL=7 . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
 ohybridproxy.build: uci.build mDNSResponder.build
 	(cd ohybridproxy && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
