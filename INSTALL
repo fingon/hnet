@@ -1,14 +1,17 @@
 -*- outline -*-
 
 Created:       Mon Apr  8 13:27:53 2013 mstenber
-Last modified: Mon Sep 23 11:41:50 2013 mstenber
+Last modified: Tue Feb  3 14:19:24 2015 mstenber
 
 * Instructions to install from scratch
 
 ** Requirements
 
 Debian 7.0 (wheezy) (amd64)
-~default installation (desktop + 
+~default installation (desktop) + sudo
+
+Debian 8.0 (jessie) (amd64)
+~default installation (desktop) + sudo
 
 Ubuntu 12.04 LTS (amd64)
 ~default installation
@@ -39,12 +42,13 @@ Note: sudo should be also configured for your account for the
 following steps to work; on typical Ubuntu 12.04 installation it
 should work out of the box, in case of Debian, you have to add
 yourself to sudoers group using 'usermod -a -G sudoers <userid>' as
-root.
+root after installing it.
 
 # make
 
 .. this takes a long while (it should be safe to use -j <N>, -s, or
-whatever with this too if desirable) ..
+whatever with this too if desirable; OpenWrt build is -j enabled by default
+anyway, so time savings from using -j here are not that significant) ..
 
 If it completes, your environment is set up correctly. Congratulations.
 

@@ -6,7 +6,7 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Tue Sep  9 10:26:35 2014 mstenber
+# Last modified: Tue Feb  3 14:43:31 2015 mstenber
 # Edit time:     63 min
 #
 
@@ -68,6 +68,7 @@ setup-debianish:
 rw: sync rewrite-git-urls-rw
 	git submodule foreach --recursive 'git checkout master || true'
 	( cd component/babels && git checkout source-specific )
+	( cd component/hnetd && git checkout dncp-00 )
 
 #	( cd openwrt/dist && git checkout uml10 )
 
