@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Thu Nov  6 13:09:19 2014 mstenber
-# Edit time:     196 min
+# Last modified: Sun Mar 22 12:13:42 2015 mstenber
+# Edit time:     199 min
 #
 #
 
@@ -99,14 +99,18 @@ miniupnp.build:
 
 # The libdns_sd symlink automatically created is absolute; won't work
 # in netkit labs, so fix it.
+
+# 'all' target does not play nicely with debug build (sigh). So hello,
+# explicit target list..
 mDNSResponder.build:
-	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux all
+	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux DEBUG=1 Daemon libdns_sd
+	LIBS='-L../mDNSPosix/build/debug/ -ldns_sd' make -C mDNSResponder/Clients
 	mkdir -p $(BUILDDIR)/bin
 	mkdir -p $(BUILDDIR)/include
 	mkdir -p $(BUILDDIR)/lib
 	mkdir -p $(BUILDDIR)/sbin
-	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux InstalledLib InstalledClients
-	cp mDNSResponder/mDNSPosix/build/prod/mdnsd $(BUILDDIR)/sbin
+	INSTBASE=$(BUILDDIR) make -C mDNSResponder/mDNSPosix os=linux DEBUG=1 InstalledLib InstalledClients
+	cp mDNSResponder/mDNSPosix/build/debug/mdnsd $(BUILDDIR)/sbin
 	ln -sf libdns_sd.so.1 $(BUILDDIR)/lib/libdns_sd.so
 
 
