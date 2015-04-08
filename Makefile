@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Tue Feb  3 14:43:31 2015 mstenber
-# Edit time:     63 min
+# Last modified: Mon Mar 23 16:39:21 2015 mstenber
+# Edit time:     65 min
 #
 
 HNETDIR=$(CURDIR)
@@ -24,9 +24,6 @@ build.clean:
 build.build:
 	mkdir -p build/bin
 	mkdir -p build/lib
-	# Copy over libc so that we can use it in netkit..
-	# Not very elegant, but oh well
-	cp -a  /lib/x86_64-linux-gnu/libc[-.]* build/lib
 
 # Funny demo stuff
 demo.start:
