@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Wed Apr 10 12:23:54 2013 mstenber
-# Last modified: Sat Apr 18 08:36:37 2015 mstenber
-# Edit time:     199 min
+# Last modified: Sat Apr 18 09:04:04 2015 mstenber
+# Edit time:     202 min
 #
 #
 
@@ -35,7 +35,7 @@ CMAKE_DEFS=\
 #TLS=-DDTLS_CYASSL=1
 TLS=-DDTLS_OPENSSL=1
 
-SUBDIRS=babels dnsmasq odhcp6c \
+SUBDIRS=babeld dnsmasq odhcp6c \
 	json-c libubox uci \
 	odhcpd hnetd \
 	mDNSResponder ohybridproxy \
@@ -82,9 +82,8 @@ ohybridproxy.build: uci.build mDNSResponder.build
 minimalist-pcproxy.build: uci.build mDNSResponder.build
 	(cd minimalist-pcproxy && cmake $(CMAKE_DEFS) . && LD_LIBRARY_PATH=$(LIBDIR) $(MAKE) install)
 
-babels.build:
-	if [ ! -f babels/version.h ] ; then echo '#define BABEL_VERSION "hnet"' > babels/version.h ; fi
-	$(MAKE) -C babels install PREFIX=$(BUILDDIR)
+babeld.build:
+	$(MAKE) -C babeld install PREFIX=$(BUILDDIR)
 
 miniupnp.build:
 	PREFIX=$(BUILDDIR) INSTALLPREFIX=$(BUILDDIR) CONFIG_OPTIONS=--ipv6 $(MAKE) -C miniupnp/miniupnpd -f Makefile.linux install
