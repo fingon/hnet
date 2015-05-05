@@ -29,3 +29,6 @@ iptables-dev
 
 # For OpenWrt
 unzip
+
+# For Netkit (filesystem creation depends on local dns server)
+dnsmasq
