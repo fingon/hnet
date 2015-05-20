@@ -8,14 +8,14 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 20:11:27 2013 mstenber
-# Last modified: Wed May 28 13:18:55 2014 mstenber
-# Edit time:     49 min
+# Last modified: Wed May 20 14:30:14 2015 mstenber
+# Edit time:     50 min
 #
 
 # V2
 #HNET_PACKAGES="hnet"
 # V3
-HNET_PACKAGES="hnet hnet-full"
+HNET_PACKAGES="hnet-full-secure"
 #GPLUS_PACKAGES="python lsqlite3 openvpn-devel-openssl openvpn-easy-rsa google-api-python-client"
 GPLUS_PACKAGES=""
 EXTRA_PACKAGES="netkit luci rsync strace tcpdump procps valgrind lsof"
