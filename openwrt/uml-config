@@ -1262,11 +1262,6 @@ CONFIG_PACKAGE_netkit=y
 # CONFIG_PACKAGE_r8188eu-firmware is not set
 
 #
-# IPv6
-#
-# CONFIG_PACKAGE_hnet is not set
-
-#
 # Kernel modules
 #
 
@@ -1517,6 +1512,7 @@ CONFIG_PACKAGE_kmod-nf-nathelper=y
 # CONFIG_PACKAGE_kmod-macvlan is not set
 # CONFIG_PACKAGE_kmod-mii is not set
 # CONFIG_PACKAGE_kmod-of-mdio is not set
+# CONFIG_PACKAGE_kmod-phy-broadcom is not set
 # CONFIG_PACKAGE_kmod-spi-ks8995 is not set
 # CONFIG_PACKAGE_kmod-swconfig is not set
 # CONFIG_PACKAGE_kmod-switch-ip17xx is not set
@@ -1580,6 +1576,7 @@ CONFIG_PACKAGE_kmod-slhc=y
 #
 # Other modules
 #
+# CONFIG_PACKAGE_kmod-6lowpan is not set
 # CONFIG_PACKAGE_kmod-button-hotplug is not set
 # CONFIG_PACKAGE_kmod-echo is not set
 # CONFIG_PACKAGE_kmod-eeprom-93cx6 is not set
@@ -1592,8 +1589,6 @@ CONFIG_PACKAGE_kmod-slhc=y
 # CONFIG_PACKAGE_kmod-ikconfig is not set
 # CONFIG_PACKAGE_kmod-mmc is not set
 # CONFIG_PACKAGE_kmod-mtdtests is not set
-# CONFIG_PACKAGE_kmod-nand is not set
-# CONFIG_PACKAGE_kmod-nandsim is not set
 # CONFIG_PACKAGE_kmod-pps is not set
 # CONFIG_PACKAGE_kmod-pps-gpio is not set
 # CONFIG_PACKAGE_kmod-ptp is not set
@@ -1662,6 +1657,11 @@ CONFIG_PACKAGE_lua=y
 #
 
 #
+# Compression
+#
+# CONFIG_PACKAGE_libbz2 is not set
+
+#
 # Filesystem
 #
 # CONFIG_PACKAGE_libacl is not set
@@ -1692,12 +1692,14 @@ CONFIG_OPENSSL_WITH_EC=y
 # CONFIG_OPENSSL_WITH_SSL3 is not set
 # CONFIG_OPENSSL_ENGINE_CRYPTO is not set
 # CONFIG_PACKAGE_libpolarssl is not set
-# CONFIG_PACKAGE_libbfd is not set
+# CONFIG_PACKAGE_argp-standalone is not set
 # CONFIG_PACKAGE_libblkid is not set
 CONFIG_PACKAGE_libblobmsg-json=y
 # CONFIG_PACKAGE_libcap is not set
 # CONFIG_PACKAGE_libcharset is not set
 # CONFIG_PACKAGE_libconfig is not set
+# CONFIG_PACKAGE_libelf1 is not set
+# CONFIG_PACKAGE_libbfd is not set
 # CONFIG_PACKAGE_libcurl is not set
 # CONFIG_PACKAGE_libevent2 is not set
 # CONFIG_PACKAGE_libevent2-core is not set
@@ -1818,6 +1820,7 @@ CONFIG_PACKAGE_luci-theme-bootstrap=y
 #
 # 5. Protocols
 #
+CONFIG_PACKAGE_luci-proto-ipv6=y
 CONFIG_PACKAGE_luci-proto-ppp=y
 
 #
@@ -1982,10 +1985,10 @@ CONFIG_PACKAGE_ohybridproxy=y
 #
 # Routing and Redirection
 #
-CONFIG_PACKAGE_babels=y
+CONFIG_PACKAGE_babeld=y
 # CONFIG_PACKAGE_genl is not set
 # CONFIG_PACKAGE_igmpproxy is not set
-# CONFIG_PACKAGE_ip is not set
+CONFIG_PACKAGE_ip=y
 # CONFIG_PACKAGE_ip-bridge is not set
 CONFIG_PACKAGE_ip-full=y
 # CONFIG_PACKAGE_lldpd is not set
@@ -2075,9 +2078,9 @@ CONFIG_PACKAGE_6rd=y
 # CONFIG_PACKAGE_ds-lite is not set
 # CONFIG_PACKAGE_eapol-test is not set
 # CONFIG_PACKAGE_gre is not set
-CONFIG_PACKAGE_hnet-full=y
+# CONFIG_PACKAGE_hnet-full is not set
 CONFIG_PACKAGE_hnet-full-secure=y
-CONFIG_PACKAGE_hnetd-nossl=y
+# CONFIG_PACKAGE_hnetd-nossl is not set
 CONFIG_PACKAGE_hnetd-openssl=y
 # CONFIG_PACKAGE_hostapd is not set
 CONFIG_PACKAGE_hostapd-common=y
@@ -2106,7 +2109,6 @@ CONFIG_PACKAGE_minimalist-pcproxy=y
 CONFIG_PACKAGE_odhcp6c=y
 CONFIG_PACKAGE_odhcp6c_ext_cer_id=0
 CONFIG_PACKAGE_odhcpd=y
-CONFIG_PACKAGE_odhcpd_ext_prefix_class=200
 CONFIG_PACKAGE_odhcpd_ext_cer_id=0
 CONFIG_PACKAGE_ppp=y
 # CONFIG_PACKAGE_ppp-mod-pppoa is not set
@@ -2130,11 +2132,9 @@ CONFIG_PACKAGE_tcpdump=y
 CONFIG_WPA_MSG_MIN_PRIORITY=3
 # CONFIG_DRIVER_WEXT_SUPPORT is not set
 # CONFIG_DRIVER_11N_SUPPORT is not set
-# CONFIG_PACKAGE_wpa-supplicant-mesh is not set
 # CONFIG_PACKAGE_wpa-supplicant-mini is not set
 # CONFIG_PACKAGE_wpa-supplicant-p2p is not set
 # CONFIG_PACKAGE_wpad is not set
-# CONFIG_PACKAGE_wpad-mesh is not set
 CONFIG_PACKAGE_wpad-mini=y
 # CONFIG_PACKAGE_wpan-tools is not set
 # CONFIG_PACKAGE_wwan is not set
@@ -2146,6 +2146,11 @@ CONFIG_PACKAGE_wpad-mini=y
 #
 # Boot Loaders
 #
+
+#
+# Compression
+#
+# CONFIG_PACKAGE_bzip2 is not set
 
 #
 # Filesystem
