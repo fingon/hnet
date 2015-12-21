@@ -6,8 +6,8 @@
 # Copyright (c) 2013 cisco Systems, Inc.
 #
 # Created:       Mon Apr  8 14:12:02 2013 mstenber
-# Last modified: Mon Mar 23 16:39:21 2015 mstenber
-# Edit time:     65 min
+# Last modified: Fri Dec 18 14:15:13 2015 mstenber
+# Edit time:     66 min
 #
 
 HNETDIR=$(CURDIR)
@@ -43,6 +43,7 @@ sync:
 
 pull:
 	git submodule foreach --recursive git pull
+	cd openwrt/dist && scripts/feeds update
 
 PUSHCMD='(git status | grep -q ahead) && git push || true'
 
